@@ -12,7 +12,22 @@
 		busy="{detailView>/busy}"
 		busyIndicatorDelay="{detailView>/delay}">
 
-		<semantic:content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<semantic:content>    
 			<ObjectHeader
 				id="objectHeader"    
 				title="{solicitud}" 
