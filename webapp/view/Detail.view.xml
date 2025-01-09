@@ -5,7 +5,7 @@
 	xmlns:semantic="sap.m.semantic"
 	xmlns:footerbar="sap.ushell.ui.footerbar">
 
-	<semantic:DetailPage id="page" 
+	<semantic:DetailPage id="page"    
 		navButtonPress="onNavBack"
 		showNavButton="{device>/system/phone}"
 		title="{i18n>detailTitle}"
