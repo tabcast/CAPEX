@@ -6,6 +6,13 @@
 	xmlns:footerbar="sap.ushell.ui.footerbar">
 
 	<semantic:DetailPage
+	
+	
+	
+	
+	
+	
+	
 		id="page"
 		navButtonPress="onNavBack"
 		showNavButton="{device>/system/phone}"
