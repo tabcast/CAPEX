@@ -45,7 +45,7 @@
 				growing="true"
 				growingScrollToLoad="true"
 				updateFinished="onUpdateFinished"
-				selectionChange="onSelectionChange">
+				selectionChange="onSelectionChange"> 
 				<infoToolbar>
 					<Toolbar
 						active="true"
@@ -61,8 +61,11 @@
 					<ObjectListItem
 						type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}"
 						press="onSelectionChange"
-						title="{solicitud}"
-						numberUnit="{waers}">
+						title="Solicitud {solicitud}"
+						number="S {bukrs}"> 
+						
+						<ObjectAttribute text="{butxt}" />
+						
 					</ObjectListItem>
 				</items>
 			</List>
