@@ -109,7 +109,7 @@
 					]
 				},
 				{
-					"pattern": "PRESUPUESTO/{objectId}",
+					"pattern": "PRESUPUESTO/{objectId}, {solicituId}",
 					"name": "object",
 					"target": [
 						"master",

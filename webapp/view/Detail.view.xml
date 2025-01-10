@@ -1,5 +1,5 @@
 <mvc:View controllerName="co.com.postobon.controller.Detail" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
-	xmlns:footerbar="sap.ushell.ui.footerbar">
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form">
 	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
 		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
 		<semantic:content>
@@ -8,14 +8,19 @@
 					<OverflowToolbar>
 						<Title text="Datos Solicitud"/>
 					</OverflowToolbar>
-					<!--SnartForm id="smartForm">
-						<Group>
-							<SemanticGroupElement label="Solcitud">
-								<s:SmartField value="Solicitud"/>
-							</SemanticGroupElement>
-						</Group>
-					</SnartForm-->
 				</headerToolbar>
+					<!--<VBox class="sapUiSmallMargin">-->
+					<f:SimpleForm id="SimpleFormDisplay471" editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4"
+						labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1"
+						columnsL="1" columnsM="1" singleContainerFullSize="false">
+						<f:content>
+							<Label text="Solicitud"/>
+							<Text id="Solicitud" text="{solicitud}}"/>
+							<!--<Label text="Dias Totales"/>-->
+							<!--<Text id="diasTotals" text="{Detail>/DuracC}"/>-->
+						</f:content>
+					</f:SimpleForm>
+					<!--</VBox>-->				
 			</Panel>
 			<ObjectHeader id="objectHeader" title="{solicitud}" numberUnit="{waers}"></ObjectHeader>
 			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">

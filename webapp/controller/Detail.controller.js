@@ -101,10 +101,13 @@ sap.ui.define([
 			 * @private
 			 */
 			_onObjectMatched : function (oEvent) {
+				debugger;
 				var sObjectId =  oEvent.getParameter("arguments").objectId;
+				var solicituId =  oEvent.getParameter("arguments").solicituId;
 				this.getModel().metadataLoaded().then( function() {
 					var sObjectPath = this.getModel().createKey("PRESUPUESTO", {
-						bukrs :  sObjectId
+						bukrs :  sObjectId,
+						solicitud :  solicituId
 					});
 					this._bindView("/" + sObjectPath);
 				}.bind(this));
@@ -139,6 +142,7 @@ sap.ui.define([
 			},
 
 			_onBindingChange : function () {
+				debugger;
 				var oView = this.getView(),
 					oElementBinding = oView.getElementBinding();
 

@@ -194,13 +194,15 @@ sap.ui.define([
 			 * @private
 			 */
 			_onMasterMatched :  function() {
+				debugger;
 				this.getOwnerComponent().oListSelector.oWhenListLoadingIsDone.then(
 					function (mParams) {
 						if (mParams.list.getMode() === "None") {
 							return;
 						}
 						var sObjectId = mParams.firstListitem.getBindingContext().getProperty("bukrs");
-						this.getRouter().navTo("object", {objectId : sObjectId}, true);
+						var sSolicitudId = mParams.firstListitem.getBindingContext().getProperty("solicitud");
+						this.getRouter().navTo("object", {objectId : sObjectId, solicituId : sSolicitudId  }, true);
 					}.bind(this),
 					function (mParams) {
 						if (mParams.error) {
@@ -218,9 +220,11 @@ sap.ui.define([
 			 * @private
 			 */
 			_showDetail : function (oItem) {
+				debugger;
 				var bReplace = !Device.system.phone;
 				this.getRouter().navTo("object", {
-					objectId : oItem.getBindingContext().getProperty("bukrs")
+					objectId : oItem.getBindingContext().getProperty("bukrs"),
+					solicituId : oItem.getBindingContext().getProperty("solicitud")
 				}, bReplace);
 			},
 
