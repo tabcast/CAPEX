@@ -30,7 +30,7 @@
 					<IconTabFilter id="iconTabBarFilter3" icon="sap-icon://documents" tooltip="{i18n>ampliacion}" text="{i18n>ampliacion}"></IconTabFilter>
 				</items>
 			</IconTabBar>
-			<Table id="lineItemsList" width="auto" items="{APROBADORES}" updateFinished="onListUpdateFinished"
+			<Table id="lineItemsList" width="auto"  updateFinished="onListUpdateFinished"
 				noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
 				<headerToolbar>
 					<Toolbar id="lineItemsToolbar">

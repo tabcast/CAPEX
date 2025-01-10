@@ -62,9 +62,13 @@
 						type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}"
 						press="onSelectionChange"
 						title="Solicitud {solicitud}"
-						number="S {bukrs}"> 
-						
+						number="{fecha_inicio}"> 
+						<firstStatus>
+							<ObjectStatus text="{estado_desc}" state="{= ${estado} === '3' ? 'Success' : ${estado} === '2' || '1'  ? 'Warning' : 'Error' }" />
+						</firstStatus>
 						<ObjectAttribute text="{butxt}" />
+						<ObjectAttribute text="Valor Neto: {valor_neto}" />
+						
 						
 					</ObjectListItem>
 				</items>
