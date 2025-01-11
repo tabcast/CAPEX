@@ -151,7 +151,9 @@ sap.ui.define([
 					
 					inPresupuesto = {
 						bukrs:sociedad,
-						solicitud:solicitud 
+						solicitud:solicitud,
+						ITEMS:[],
+						APROBADORES:[]
 					};
 
 					sServiceUrl = this.othis.getView().getModel().sServiceUrl;
