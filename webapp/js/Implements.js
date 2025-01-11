@@ -29,6 +29,20 @@ sap.ui.define([
 				},
 
 				/**
+				 * @author: ce_alopez (Johnny López)
+				 * @description: atributte presupuesto para operación post
+				 * @function
+				 * @memberOf module: Implements
+				 * @inner
+				 */
+				presupuestoPost: {
+					bukrs: "",
+					solicitud: "",
+					ITEMS: [],
+					APROBADORES: []
+				},
+
+				/**
 				 * @author: EXSSAABARRIO (Johnny López)
 				 * @description method: atributte index
 				 * @function
@@ -134,7 +148,32 @@ sap.ui.define([
 				},
 
 				/**
-				 * @author: EXSSAABARRIO (Johnny López)
+				 * @author: ce_alopez (Johnny López)
+				 * @description method: set presupuesto post
+				 * @function
+				 * @memberOf module: Implements
+				 * @inner
+				 */
+				setPresupuestPost: function(sBukrs, sSolicitud) {
+					this.presupuestoPost.bukrs = sBukrs;
+					this.presupuestoPost.solicitud = sSolicitud;
+					this.presupuestoPost.ITEMS = [];
+					this.presupuestoPost.APROBADORES = [];
+				},
+				
+				/**
+				 * @author: ce_alopez (Johnny López)
+				 * @description method: get presupuesto post
+				 * @function
+				 * @memberOf module: Implements
+				 * @inner
+				 */
+				getPresupuestPost: function() {
+					return this.presupuestoPost;
+				},				
+
+				/**
+				 * @author: ce_alopez (Johnny López)
 				 * @description method: set centro trabajo
 				 * @function
 				 * @memberOf module: Implements
@@ -148,18 +187,13 @@ sap.ui.define([
 
 					sServiceUrl = this.othis.getView().getModel().sServiceUrl;
 					oModelService = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
-					
-					inPresupuesto = {
-						bukrs:sociedad,
-						solicitud:solicitud,
-						ITEMS:[],
-						APROBADORES:[]
-					};
+
+					inPresupuesto = this.getPresupuestPost();
 
 					sServiceUrl = this.othis.getView().getModel().sServiceUrl;
 					oModelService = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
 
-					this.dao.setPresupuestoAsyn(oModelService, "PRESUPUESTO", inPresupuesto, this.presupuesto );
+					this.dao.setPresupuestoAsyn(oModelService, "PRESUPUESTO", inPresupuesto, this.presupuesto);
 					// var test = this.dao.setPresupuesto(oModelService, "PRESUPUESTO", inPresupuesto);
 					// return test;
 				},

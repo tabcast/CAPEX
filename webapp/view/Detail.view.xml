@@ -3,7 +3,7 @@
 	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
 		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
 		<semantic:content>
-			<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+			<Panel expandable="true" expanded="true" width="auto" class="sapUiResponsiveMargin">
 				<headerToolbar>
 					<OverflowToolbar>
 						<Title text="Datos Solicitud"/>
@@ -15,17 +15,27 @@
 						columnsL="1" columnsM="1" singleContainerFullSize="false">
 						<f:content>
 							<Label text="Solicitud"/>
-							<Text id="Solicitud" text="{solicitud}}"/>
-							<!--<Label text="Dias Totales"/>-->
-							<!--<Text id="diasTotals" text="{Detail>/DuracC}"/>-->
+							<Text id="Solicitud" text="{solicitud}"/>
+							<Label text="Sociedad"/>
+							<Text id="Sociedad" text="{bukrs}-{butxt}"/>		
+							<Label text="Centro"/>
+							<Text id="Centro" text="{ubicacion}-{ubicacion_nombre}"/>	
+							<Label text="Responsable"/>
+							<Text id="Responsable" text="{responsable}-{responsable_nombre}"/>	
+							<Label text="Valor Neto"/>
+							<Text id="ValorNeto" text="{valor_neto}"/>
+							<Label text="Valor Aprobado"/>
+							<Text id="ValorAprobado" text="{valor_pre_aprobado}"/>	
+							<Label text="Estado"/>
+							<Text id="Estado" text="{estado}-{estado_desc}"/>								
 						</f:content>
 					</f:SimpleForm>
 					<!--</VBox>-->				
 			</Panel>
-			<ObjectHeader id="objectHeader" title="{solicitud}" numberUnit="{waers}"></ObjectHeader>
+			<!--<ObjectHeader id="objectHeader" title="{solicitud}" numberUnit="{waers}"></ObjectHeader>-->
 			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
 				<items>
-					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>textItems}"></IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>textItems}" ></IconTabFilter>
 					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://account" tooltip="{i18n>aprobador}" text="{i18n>aprobador}"></IconTabFilter>
 					<IconTabFilter id="iconTabBarFilter3" icon="sap-icon://documents" tooltip="{i18n>ampliacion}" text="{i18n>ampliacion}"></IconTabFilter>
 				</items>
