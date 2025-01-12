@@ -100,7 +100,7 @@
 						                <Label text="{i18n>tblitems_desczonapro}" id="lbl_tblitems_desczonapro"/>
 						            </header>
 						        </Column>
-             
+              
             
 text="{i18n>tblitems_desczonapro}"
 text="{i18n>tblitems_inversion}"
