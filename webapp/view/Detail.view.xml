@@ -1,42 +1,50 @@
-<mvc:View controllerName="co.com.postobon.controller.Detail" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
-	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form">
-	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
-		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form" controllerName="co.com.postobon.controller.Detail">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" floatingFooter="true">
 		<semantic:content>
-			<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+			<Panel expandable="true" expanded="true" width="auto" class="sapUiResponsiveMargin">
 				<headerToolbar>
 					<OverflowToolbar>
 						<Title text="Datos Solicitud"/>
 					</OverflowToolbar>
 				</headerToolbar>
 					<!--<VBox class="sapUiSmallMargin">-->
-					<f:SimpleForm id="SimpleFormDisplay471" editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4"
-						labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1"
-						columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<f:SimpleForm id="SimpleFormDisplay471" editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
 						<f:content>
 							<Label text="Solicitud"/>
-							<Text id="Solicitud" text="{solicitud}}"/>
-							<!--<Label text="Dias Totales"/>-->
-							<!--<Text id="diasTotals" text="{Detail>/DuracC}"/>-->
+							<Text id="Solicitud" text="{solicitud}"/>
+							<Label text="Sociedad"/>
+							<Text id="Sociedad" text="{bukrs} - {butxt}"/>		
+							<Label text="Centro"/>
+							<Text id="Centro" text="{ubicacion}-{ubicacion_nombre}"/>	
+							<Label text="Responsable"/>
+							<Text id="Responsable" text="{responsable} - {responsable_nombre}"/>	
+							<Label text="Valor Neto"/>
+							<Text id="ValorNeto" text="{valor_neto}"/>
+							<Label text="Valor Aprobado"/>
+							<Text id="ValorAprobado" text="{valor_pre_aprobado}"/>	
+							<Label text="Estado"/>
+							<Text id="Estado" text="{estado} - {estado_desc}"/>								
 						</f:content>
 					</f:SimpleForm>
 					<!--</VBox>-->				
 			</Panel>
-			<ObjectHeader id="objectHeader" title="{solicitud}" numberUnit="{waers}"></ObjectHeader>
+			<!--<ObjectHeader id="objectHeader" title="{solicitud}" numberUnit="{waers}"></ObjectHeader>-->
 			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
 				<items>
-					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>textItems}"></IconTabFilter>
-					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://account" tooltip="{i18n>aprobador}" text="{i18n>aprobador}"></IconTabFilter>
-					<IconTabFilter id="iconTabBarFilter3" icon="sap-icon://documents" tooltip="{i18n>ampliacion}" text="{i18n>ampliacion}"></IconTabFilter>
-				</items>
-			</IconTabBar>
-			<Table id="lineItemsList" width="auto"  updateFinished="onListUpdateFinished"
-				noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
+					<IconTabFilter id="iconTabBarFilter0" icon="sap-icon://message-information" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>tab_info}">
+						<Label text="111111111"/>
+						
+			<Table id="lineItemsList" width="auto" updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
 				<headerToolbar>
 					<Toolbar id="lineItemsToolbar">
 						<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
 					</Toolbar>
 				</headerToolbar>
+				<infoToolbar>
+					<OverflowToolbar>
+						<Label text="Wide range of available products"/>
+					</OverflowToolbar>
+				</infoToolbar>				
 				<columns>
 					<Column>
 						<Text text="{i18n>detailLineItemTableIDColumn}"/>
@@ -53,8 +61,107 @@
 						</cells>
 					</ColumnListItem>
 				</items>
-			</Table>
+			</Table>						
+						
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarF6" icon="sap-icon://attachment-text-file" tooltip="{i18n>tab_textos}" text="{i18n>tab_textos}">
+						<Label text="666733"/>
+					</IconTabFilter>			
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://numbered-text" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>tab_item}" iconColor="Positive" count="23-{total_items}">
+					
+						<Label text="222"/>
+						<Table noDataText="Drop column list items here and columns in the area above" id="tbl_items">
+						    <items>
+						        <ColumnListItem id="__item2">
+						            <cells>
+						                <Text text="Row 2 Cell 1" id="__text7"/>
+						                <Text text="Row 2 Cell 2" id="__text8"/>
+						                <Text text="Row 2 Cell 3" id="__text9"/></cells>
+						        </ColumnListItem></items>
+						    <columns>
+						        <Column id="tbl_items_items">
+						            <header>
+						                <Label text="{i18n>tblitems_items}"  id="__label12"/>
+						            </header>
+						        </Column>
+						        <Column id="__column3">
+						            <header>
+						                <Label text="{i18n>tblitems_canti}"  id="__label13"/>
+						            </header>
+						        </Column>
+						        <Column id="__column4">
+						            <header>
+						                <Label text="{i18n>tblitems_zonapro}" id="__label14"/>
+						            </header>
+						        </Column>
+						        
+              					<Column id="col_tblitems_desczonapro">
+						            <header>
+						                <Label text="{i18n>tblitems_desczonapro}" id="lbl_tblitems_desczonapro"/>
+						            </header>
+						        </Column>
+             
+            
+text="{i18n>tblitems_desczonapro}"
+text="{i18n>tblitems_inversion}"
+text="{i18n>tblitems_moneda}"
+text="{i18n>tblitems_TRM}"
+text="{i18n>tblitems_InversionCOP}"
+text="{i18n>tblitems_InversionCOP_Mon}"
+text="{i18n>tblitems_CeCO}"
+text="{i18n>tblitems_Orden}"
+text="{i18n>tblitems_ActFijo}"
+text="{i18n>tblitems_Observ}"
+						        
+						        
+						        </columns></Table>
+					<content/>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://account" tooltip="{i18n>tab_apro}" text="{i18n>tab_apro}">
+						<Table noDataText="Drop column list items here and columns in the area above" id="_table_aprob">
+						    <items>
+						        <ColumnListItem id="__item3">
+						            <cells>
+						                <Text text="Row 1 Cell 1" id="__text10"/>
+						                <Text text="Row 1 Cell 2" id="__text11"/>
+						                <Text text="Row 1 Cell 3" id="__text12"/></cells>
+						        </ColumnListItem>
+						        <ColumnListItem id="__item4">
+						            <cells>
+						                <Text text="Row 2 Cell 1" id="__text13"/>
+						                <Text text="Row 2 Cell 2" id="__text14"/>
+						                <Text text="Row 2 Cell 3" id="__text15"/></cells>
+						        </ColumnListItem></items>
+						    <columns>
+						        <Column id="__column5">
+						            <header>
+						                <Label text="Header 1" id="__label15"/>
+						            </header>
+						        </Column>
+						        <Column id="__column6">
+						            <header>
+						                <Label text="Header 2" id="__label16"/>
+						            </header>
+						        </Column>
+						        <Column id="__column7">
+						            <header>
+						                <Label text="Header 3" id="__label17"/>
+						            </header>
+						        </Column></columns></Table>
+					<content/>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter3" icon="sap-icon://documents" tooltip="{i18n>tab_ampl}" text="{i18n>tab_ampl}">
+						<Label text="444"/>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter" icon="sap-icon://vds-file" tooltip="{i18n>tab_afin}" text="{i18n>tab_afin}">
+						<Label text="555"/>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+
+		
 		</semantic:content>
+
 		<semantic:sendEmailAction>
 			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
 		</semantic:sendEmailAction>
@@ -62,7 +169,9 @@
 			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
 		</semantic:shareInJamAction>
 		<semantic:saveAsTileAction>
-			<footerbar:AddBookmarkButton id="shareTile" title="{detailView>/saveAsTileTitle}"/>
+			<footerbar:AddBookmarkButton id="shareTile" title="testttt{detailView>/saveAsTileTitle}">
+
+			</footerbar:AddBookmarkButton>
 		</semantic:saveAsTileAction>
 	</semantic:DetailPage>
 </mvc:View>

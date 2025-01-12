@@ -34,6 +34,7 @@ sap.ui.define([
 			this.setModel(oViewModel, "detailView");
 
 			this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
+			
 		},
 
 		/* =========================================================== */
@@ -109,6 +110,7 @@ sap.ui.define([
 			debugger;
 			var sObjectId = oEvent.getParameter("arguments").objectId;
 			var solicituId = oEvent.getParameter("arguments").solicituId;
+			this.f_LoadData(sObjectId, solicituId);
 			this.getModel().metadataLoaded().then(function() {
 				var sObjectPath = this.getModel().createKey("PRESUPUESTO", {
 					bukrs: sObjectId,
@@ -117,7 +119,7 @@ sap.ui.define([
 				this._bindView("/" + sObjectPath);
 			}.bind(this));
 			
-			this.f_LoadData(sObjectId, solicituId);
+			
 		},
 
 		/**
@@ -128,6 +130,7 @@ sap.ui.define([
 		 * @private
 		 */
 		_bindView: function(sObjectPath) {
+			debugger;
 			// Set busy indicator during view binding
 			var oViewModel = this.getModel("detailView");
 
@@ -149,7 +152,6 @@ sap.ui.define([
 		},
 
 		_onBindingChange: function() {
-			debugger;
 			var oView = this.getView(),
 				oElementBinding = oView.getElementBinding();
 
@@ -180,7 +182,7 @@ sap.ui.define([
 		},
 
 		_onMetadataLoaded: function() {
-			debugger;
+			debugger;             
 			// Store original busy indicator delay for the detail view
 			var iOriginalViewBusyDelay = this.getView().getBusyIndicatorDelay(),
 				oViewModel = this.getModel("detailView"),
@@ -212,7 +214,31 @@ sap.ui.define([
 		 */
 		f_LoadData: function (objectId, solicituId) {
 		    debugger;
-			sap.ui.getCore().detailImpliments.setDataPresupuestoAsyn(objectId, solicituId);
+		    sap.ui.getCore().detailImpliments.setPresupuestPost(objectId, solicituId);
+			sap.ui.getCore().detailImpliments.setDataPresupuestoAsyn();
+		},
+		
+		/**
+		 * @author: ce_alopez (Johnny López)
+		 * @description: Verificar si los datos están cargados
+		 * @function
+		 * @memberOf module: Detalle
+		 * @inner
+		 */
+		f_check_data: function () {
+			var oData = "";
+		    debugger;
+		    oData = sap.ui.getCore().detailImpliments.getPresupuesto();
+			if (typeof oData.data === "undefined") {
+				// sap.ui.getCore().gestionOrder.setCentroTrabajo(vCentro.getText());
+				// oData = sap.ui.getCore().gestionOrder.getCentroTrabajo();
+			}		    
+		},
+		
+		onBeforeRendering: function() {
+		},
+		
+		onAfterRendering: function() {
 		}		
 
 	});
