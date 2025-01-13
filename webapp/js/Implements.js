@@ -39,7 +39,8 @@ sap.ui.define([
 					bukrs: "",
 					solicitud: "",
 					ITEMS:[],
-					APROBADORES:[]
+					APROBADORES:[],
+					AMPLIACIONES:[]
 				},
 /**
 				 * @author: ce_alopez (Johnny López)
@@ -54,7 +55,7 @@ sap.ui.define([
 					this.presupuestoPost.solicitud = sSolicitud;
 					this.presupuestoPost.ITEMS = [];
 					this.presupuestoPost.APROBADORES = [];
-					
+					this.presupuestoPost.AMPLIACIONES = [];
 				},
 				
 				/**
