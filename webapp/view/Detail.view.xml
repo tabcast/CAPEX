@@ -37,7 +37,7 @@
 			<Table id="lineItemsList" width="auto" updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
 				<headerToolbar>
 					<Toolbar id="lineItemsToolbar">
-						<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
+						<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>    
 					</Toolbar>
 				</headerToolbar>
 				<infoToolbar>
