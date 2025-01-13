@@ -70,6 +70,7 @@
 							<Text text="prueba texto" />
 							<Text text="prueba texto2" />
 							<Text text="prueba texto3" />
+							<Text text="prueba texto4" />
 						</Carousel>
 					</IconTabFilter>			
 					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://numbered-text" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>tab_item}" iconColor="Positive" count="{ path :'/totalItems'}">
