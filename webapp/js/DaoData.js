@@ -13,7 +13,7 @@ sap.ui.define([
 				},
 
 				constructor: function(oThis) {
-					this.daoModel = new DataModel();
+					this.daoModel = new DataModel(); 
 				},
 
 				/**
