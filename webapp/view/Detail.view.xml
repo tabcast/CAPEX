@@ -85,10 +85,10 @@
 						<Label text="666733"/>
 						<Carousel loop="true">
 							<Text text="prueba texto" />
-							<Text text="prueba texto" />
+							<Text text="prueba texto2" />
 							<Text text="prueba texto" />
 						</Carousel>
-					</IconTabFilter>
+						</IconTabFilter>
 					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://numbered-text" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>tab_item}"
 						iconColor="Positive" count="{ path :'/totalItems'}">
 						<Table noDataText="No hay Posiciones" id="tbl_items" items="{ path :'/lstItemsItems'}" fixedLayout="Strict" growing="true">
