@@ -143,10 +143,13 @@ sap.ui.define([
 			
 			//Url Set
 			var Link = this.getView().byId("_LinkUrl");
-			if ( url === '' )
+			if ( url === '' ){
 				Link.setText("Sin Archivo");
-			else
+				Link.setEnabled(false);
+			}else{
 				Link.setText(url);
+				Link.setEnabled(true);
+			}
 			
 			var iconTabBarFilter3 = this.getView().byId("iconTabBarFilter3");
 			iconTabBarFilter3.setCount(oDataPresupuesto.totalAmpliac);
