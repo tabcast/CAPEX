@@ -65,7 +65,12 @@
 						
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarF6" icon="sap-icon://attachment-text-file" tooltip="{i18n>tab_textos}" text="{i18n>tab_textos}">
-						<Label text="666733"/>
+						
+												<Carousel loop="true">
+							<Text text="prueba texto" />
+							<Text text="prueba texto2" />
+							<Text text="prueba texto3" />
+						</Carousel>
 					</IconTabFilter>			
 					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://numbered-text" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>tab_item}" iconColor="Positive" count="{ path :'/totalItems'}">
 						<Table noDataText="No hay Posiciones" id="tbl_items" items="{  path :'/lstItemsItems'}" fixedLayout="Strict" growing="true">
@@ -178,16 +183,38 @@
 		
 		</semantic:content>
 
-		<semantic:sendEmailAction>
-			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
-		</semantic:sendEmailAction>
-		<semantic:shareInJamAction>
-			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
-		</semantic:shareInJamAction>
-		<semantic:saveAsTileAction>
-			<footerbar:AddBookmarkButton id="shareTile" title="testttt{detailView>/saveAsTileTitle}">
-
-			</footerbar:AddBookmarkButton>
-		</semantic:saveAsTileAction>
+				<!--<OverflowToolbar>-->
+		<!--	<Button id="btnConsulta" enabled="true" type="Emphasized" press="f_ConsultaAviso" text="Aceptar"-->
+		<!--		iconFirst="sap-icon://payment-approval"/>-->
+		<!--	<Button id="btnOrdCreate" enabled="true" type="Emphasized" press="f_crearOrden" text="Rechazar"-->
+		<!--		iconFirst="sap-icon://payment-approval"/>-->
+		<!--</OverflowToolbar>-->
+		<!--<footer>-->
+		<!--	<Bar>-->
+		<!--		<contentRight>-->
+		<!--<Button id="btnConsulta" enabled="true" type="Emphasized" press="f_ConsultaAviso" text="Consultar Aviso" iconFirst="sap-icon://payment-approval"/>-->
+		<!--			<Button id="btnOrdCreate" enabled="true" type="Emphasized" press="f_crearOrden" text="{i18n>detailCreateOrder}"-->
+		<!--				iconFirst="sap-icon://payment-approval"/>-->
+		<!--		</contentRight>-->
+		<!--	</Bar>-->
+		<!--</footer>-->
+		<!--<semantic:sendEmailAction>-->
+		<!--	<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>-->
+		<!--</semantic:sendEmailAction>-->
+		<!--<semantic:shareInJamAction>-->
+		<!--	<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>-->
+		<!--</semantic:shareInJamAction>-->
+		<!--<semantic:saveAsTileAction>-->
+			<!--<footerbar:AddBookmarkButton id="shareTile" title="testttt{detailView>/saveAsTileTitle}"></footerbar:AddBookmarkButton>-->
+			<!--<Button id="btnOrdCreate" enabled="true" type="Emphasized" press="f_crearOrden" text="{i18n>detailCreateOrder}"-->
+			<!--	iconFirst="sap-icon://payment-approval"/>-->
+		<!--</semantic:saveAsTileAction>-->
+		<semantic:customFooterContent>
+			<OverflowToolbarButton icon="sap-icon://edit" text="Agregar nota" press="agregarNota" />
+			<Button id="btnCancel" enabled="true" type="Reject" press="test" text="Rechazar"
+				iconFirst="sap-icon://payment-approval"/>			
+			<Button id="btnAcept" enabled="true" type="Accept" press="test" text="Aprobar"
+				iconFirst="sap-icon://payment-approval"/>
+		</semantic:customFooterContent>
 	</semantic:DetailPage>
 </mvc:View>
