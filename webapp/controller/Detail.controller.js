@@ -107,7 +107,7 @@ sap.ui.define([
 		 * @private
 		 */
 		_onObjectMatched: function(oEvent) {
-			debugger;
+			
 			var sObjectId = oEvent.getParameter("arguments").objectId;
 			var solicituId = oEvent.getParameter("arguments").solicituId;
 			this.f_LoadData(sObjectId, solicituId);
@@ -118,8 +118,27 @@ sap.ui.define([
 				});
 				this._bindView("/" + sObjectPath);
 			}.bind(this));
+			          
+			debugger;
+			var oDataPresupuesto = "";
+                oDataPresupuesto = {
+                	totalItems: 0,
+                	totalAprob: 0,
+                    lstItemsAprobadores: []
+                };
+            oDataPresupuesto.totalItems = sap.ui.getCore().detailImpliments.getPresupuesto().total_items;
+            oDataPresupuesto.totalAprob = sap.ui.getCore().detailImpliments.getPresupuesto().total_aprobadores;
+            oDataPresupuesto.lstItemsAprobadores = sap.ui.getCore().detailImpliments.getPresupuesto().APROBADORES.results;
+			var oModel = new sap.ui.model.json.JSONModel(oDataPresupuesto);
 			
+			var oList = this.getView().byId("_table_aprob");
+			oList.setModel(oModel);
 			
+			var iconTabBarFilter2 = this.getView().byId("iconTabBarFilter2");
+			iconTabBarFilter2.setModel(oModel);	
+			
+			var iconTabBarFilter1 = this.getView().byId("iconTabBarFilter1");
+			iconTabBarFilter1.setModel(oModel);
 		},
 
 		/**

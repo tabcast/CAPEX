@@ -38,9 +38,85 @@ sap.ui.define([
 				presupuestoPost: {
 					bukrs: "",
 					solicitud: "",
-					ITEMS: [],
-					APROBADORES: []
+					ITEMS:[],
+					APROBADORES:[]
 				},
+/**
+				 * @author: ce_alopez (Johnny López)
+				 * @description method: set presupuesto post
+				 * @function
+				 * @memberOf module: Implements
+				 * @inner
+				 */
+				setPresupuestPost: function(sBukrs, sSolicitud) {
+					
+					this.presupuestoPost.bukrs = sBukrs;
+					this.presupuestoPost.solicitud = sSolicitud;
+					this.presupuestoPost.ITEMS = [];
+					this.presupuestoPost.APROBADORES = [];
+					
+				},
+				
+				/**
+				 * @author: ce_alopez (Johnny López)
+				 * @description method: get presupuesto post
+				 * @function
+				 * @memberOf module: Implements
+				 * @inner
+				 */
+				getPresupuestPost: function() {
+					return this.presupuestoPost;
+				},				
+
+				/**
+				 * @author: ce_alopez (Johnny López)
+				 * @description method: set centro trabajo
+				 * @function
+				 * @memberOf module: Implements
+				 * @inner
+				 */
+				setDataPresupuestoAsyn: function(sociedad, solicitud) {
+					//debugger;
+					var sServiceUrl = "",
+						oModelService = "",
+						inPresupuesto = {};
+						
+						
+					///this.presupuesto = {};
+
+					sServiceUrl = this.othis.getView().getModel().sServiceUrl;
+					oModelService = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+
+					///this.presupuestoPost = {};
+					inPresupuesto = this.getPresupuestPost();
+					
+
+					sServiceUrl = this.othis.getView().getModel().sServiceUrl;
+					oModelService = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+
+					//this.dao.setPresupuestoAsyn(oModelService, "PRESUPUESTO", inPresupuesto, this.presupuesto);
+					
+					this.presupuesto = this.dao.setPresupuesto(oModelService, "PRESUPUESTO", inPresupuesto);
+					
+					// var test = this.dao.setPresupuesto(oModelService, "PRESUPUESTO", inPresupuesto);
+					// return test;
+				},
+
+				/**
+				 * @author: ce_alopez (Johnny López)
+				 * @description method: get centro trabajo
+				 * @function
+				 * @memberOf module: Implements
+				 * @inner
+				 */
+				getPresupuesto: function() {
+
+					return this.presupuesto.data;
+				},				
+				
+				
+				
+				
 
 				/**
 				 * @author: EXSSAABARRIO (Johnny López)
@@ -147,68 +223,7 @@ sap.ui.define([
 
 				},
 
-				/**
-				 * @author: ce_alopez (Johnny López)
-				 * @description method: set presupuesto post
-				 * @function
-				 * @memberOf module: Implements
-				 * @inner
-				 */
-				setPresupuestPost: function(sBukrs, sSolicitud) {
-					this.presupuestoPost.bukrs = sBukrs;
-					this.presupuestoPost.solicitud = sSolicitud;
-					this.presupuestoPost.ITEMS = [];
-					this.presupuestoPost.APROBADORES = [];
-				},
 				
-				/**
-				 * @author: ce_alopez (Johnny López)
-				 * @description method: get presupuesto post
-				 * @function
-				 * @memberOf module: Implements
-				 * @inner
-				 */
-				getPresupuestPost: function() {
-					return this.presupuestoPost;
-				},				
-
-				/**
-				 * @author: ce_alopez (Johnny López)
-				 * @description method: set centro trabajo
-				 * @function
-				 * @memberOf module: Implements
-				 * @inner
-				 */
-				setDataPresupuestoAsyn: function(sociedad, solicitud) {
-					debugger;
-					var sServiceUrl = "",
-						oModelService = "",
-						inPresupuesto = {};
-
-					sServiceUrl = this.othis.getView().getModel().sServiceUrl;
-					oModelService = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
-
-					inPresupuesto = this.getPresupuestPost();
-
-					sServiceUrl = this.othis.getView().getModel().sServiceUrl;
-					oModelService = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
-
-					this.dao.setPresupuestoAsyn(oModelService, "PRESUPUESTO", inPresupuesto, this.presupuesto);
-					// var test = this.dao.setPresupuesto(oModelService, "PRESUPUESTO", inPresupuesto);
-					// return test;
-				},
-
-				/**
-				 * @author: ce_alopez (Johnny López)
-				 * @description method: get centro trabajo
-				 * @function
-				 * @memberOf module: Implements
-				 * @inner
-				 */
-				getPresupuesto: function() {
-
-					return this.presupuesto.data;
-				},
 
 				/**
 				 * @author: EXSSAABARRIO (Johnny López)

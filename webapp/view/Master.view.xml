@@ -64,7 +64,7 @@
 						title="Solicitud {solicitud}"
 						number="{fecha_inicio}"> 
 						<firstStatus>
-							<ObjectStatus text="{estado_desc}" state="{= ${estado} === '3' ? 'Success' : ${estado} === '2' || '1'  ? 'Warning' : 'Error' }" />
+							<ObjectStatus text="{estado_desc}" state="{= ${estado} === '3' ? 'Success' : ( ${estado} === '5' || ${estado} ==='6' )  ? 'Error' : 'Warning' }" />
 						</firstStatus>
 						<ObjectAttribute text="{butxt}" />
 						<ObjectAttribute text="Valor Neto: {valor_neto}" />

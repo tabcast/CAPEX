@@ -1,4 +1,3 @@
-
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form" controllerName="co.com.postobon.controller.Detail">
 	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" floatingFooter="true">
 		<semantic:content>
@@ -68,7 +67,7 @@
 					<IconTabFilter id="iconTabBarF6" icon="sap-icon://attachment-text-file" tooltip="{i18n>tab_textos}" text="{i18n>tab_textos}">
 						<Label text="666733"/>
 					</IconTabFilter>			
-					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://numbered-text" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>tab_item}" iconColor="Positive" count="23-{total_items}">
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://numbered-text" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>tab_item}" iconColor="Positive" count="{ path :'/totalItems'}">
 					
 						<Label text="222"/>
 						<Table noDataText="Drop column list items here and columns in the area above" id="tbl_items">
@@ -82,12 +81,12 @@
 						    <columns>
 						        <Column id="tbl_items_items">
 						            <header>
-						                <Label text="{i18n>tblitems_items}"  id="__label12"/>
+						                <Label text="{i18n>tblitems_items}" id="__label12"/>
 						            </header>
 						        </Column>
 						        <Column id="__column3">
 						            <header>
-						                <Label text="{i18n>tblitems_canti}"  id="__label13"/>
+						                <Label text="{i18n>tblitems_canti}" id="__label13"/>
 						            </header>
 						        </Column>
 						        <Column id="__column4">
@@ -107,20 +106,14 @@
 						        </columns></Table>
 					<content/>
 					</IconTabFilter>
-					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://account" tooltip="{i18n>tab_apro}" text="{i18n>tab_apro}">
-						<Table noDataText="Drop column list items here and columns in the area above" id="_table_aprob">
+					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://account" tooltip="{i18n>tab_apro}" text="{i18n>tab_apro}" count="{ path :'/totalAprob'}">
+						<Table noDataText="Drop column list items here and columns in the area above" id="_table_aprob" items="{  path :'/lstItemsAprobadores'}">
 						    <items>
 						        <ColumnListItem id="__item3">
 						            <cells>
-						                <Text text="Row 1 Cell 1" id="__text10"/>
+						                <Text text="{solicitud}" id="__text10"/>
 						                <Text text="Row 1 Cell 2" id="__text11"/>
 						                <Text text="Row 1 Cell 3" id="__text12"/></cells>
-						        </ColumnListItem>
-						        <ColumnListItem id="__item4">
-						            <cells>
-						                <Text text="Row 2 Cell 1" id="__text13"/>
-						                <Text text="Row 2 Cell 2" id="__text14"/>
-						                <Text text="Row 2 Cell 3" id="__text15"/></cells>
 						        </ColumnListItem></items>
 						    <columns>
 						        <Column id="__column5">
