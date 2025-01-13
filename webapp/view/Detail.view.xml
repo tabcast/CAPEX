@@ -1,5 +1,7 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" controllerName="co.com.postobon.controller.Detail">
-	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" floatingFooter="true">
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar"
+	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" controllerName="co.com.postobon.controller.Detail">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
+		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" floatingFooter="true">
 		<semantic:content>
 			<Panel expandable="true" expanded="true" width="auto" class="sapUiResponsiveMargin">
 				<headerToolbar>
@@ -7,64 +9,65 @@
 						<Title text="Datos Solicitud"/>
 					</OverflowToolbar>
 				</headerToolbar>
-					<!--<VBox class="sapUiSmallMargin">-->
-					<f:SimpleForm id="SimpleFormDisplay471" editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
-						<f:content>
-							<Label text="Solicitud"/>
-							<Text id="Solicitud" text="{solicitud}"/>
-							<Label text="Sociedad"/>
-							<Text id="Sociedad" text="{bukrs} - {butxt}"/>		
-							<Label text="Centro"/>
-							<Text id="Centro" text="{ubicacion}-{ubicacion_nombre}"/>	
-							<Label text="Responsable"/>
-							<Text id="Responsable" text="{responsable} - {responsable_nombre}"/>	
-							<Label text="Valor Neto"/>
-							<Text id="ValorNeto" text="{valor_neto}"/>
-							<Label text="Valor Aprobado"/>
-							<Text id="ValorAprobado" text="{valor_pre_aprobado}"/>	
-							<Label text="Estado"/>
-							<Text id="Estado" text="{estado} - {estado_desc}"/>								
-						</f:content>
-					</f:SimpleForm>
-					<!--</VBox>-->				
+				<!--<VBox class="sapUiSmallMargin">-->
+				<f:SimpleForm id="SimpleFormDisplay471" editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4"
+					labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1"
+					columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<f:content>
+						<Label text="Solicitud"/>
+						<Text id="Solicitud" text="{solicitud}"/>
+						<Label text="Sociedad"/>
+						<Text id="Sociedad" text="{bukrs} - {butxt}"/>
+						<Label text="Centro"/>
+						<Text id="Centro" text="{ubicacion}-{ubicacion_nombre}"/>
+						<Label text="Responsable"/>
+						<Text id="Responsable" text="{responsable} - {responsable_nombre}"/>
+						<Label text="Valor Neto"/>
+						<Text id="ValorNeto" text="{valor_neto}"/>
+						<Label text="Valor Aprobado"/>
+						<Text id="ValorAprobado" text="{valor_pre_aprobado}"/>
+						<Label text="Estado"/>
+						<Text id="Estado" text="{estado} - {estado_desc}"/>
+					</f:content>
+				</f:SimpleForm>
+				<!--</VBox>-->
 			</Panel>
 			<!--<ObjectHeader id="objectHeader" title="{solicitud}" numberUnit="{waers}"></ObjectHeader>-->
 			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
 				<items>
 					<IconTabFilter id="iconTabBarFilter0" icon="sap-icon://message-information" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>tab_info}">
-						<Label text="111111111"/>
-						
-			<Table id="lineItemsList" width="auto" updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
-				<headerToolbar>
-					<Toolbar id="lineItemsToolbar">
-						<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
-					</Toolbar>
-				</headerToolbar>
-				<infoToolbar>
-					<OverflowToolbar>
-						<Label text="Wide range of available products"/>
-					</OverflowToolbar>
-				</infoToolbar>				
-				<columns>
-					<Column>
-						<Text text="{i18n>detailLineItemTableIDColumn}"/>
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
-						<Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
-					</Column>
-				</columns>
-				<items>
-					<ColumnListItem>
-						<cells>
-							<ObjectIdentifier title="{responsable}" text="{bukrs}"/>
-							<ObjectNumber unit="{bukrs}"/>
-						</cells>
-					</ColumnListItem>
-				</items>
-			</Table>						
-						
+						<Table id="lineItemsList" width="auto" updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}"
+							busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
+							<headerToolbar>
+								<Toolbar id="lineItemsToolbar">
+									<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
+								</Toolbar>
+							</headerToolbar>
+							<infoToolbar>
+								<OverflowToolbar>
+									<Label text="Wide range of available products"/>
+								</OverflowToolbar>
+							</infoToolbar>
+							<columns>
+								<Column>
+									<Text text="{i18n>detailLineItemTableIDColumn}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+									<Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectIdentifier title="{responsable}" text="{bukrs}"/>
+										<ObjectNumber unit="{bukrs}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarF6" icon="sap-icon://attachment-text-file" tooltip="{i18n>tab_textos}" text="{i18n>tab_textos}">
+<<<<<<< Upstream, based on 130c90c67301fce277cc45b2fac578630f2947dd
 						
 												<Carousel loop="true">
 							<Text text="prueba texto" />
@@ -78,6 +81,22 @@
 						        <ColumnListItem id="__item2">
 						            <cells>
 						            	<ObjectIdentifier title="{item}" text="{observaciones}"/>
+=======
+						<Label text="666733"/>
+						<Carousel loop="true">
+							<Text text="prueba texto" />
+							<Text text="prueba texto" />
+							<Text text="prueba texto" />
+						</Carousel>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://numbered-text" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>tab_item}"
+						iconColor="Positive" count="{ path :'/totalItems'}">
+						<Table noDataText="No hay Posiciones" id="tbl_items" items="{ path :'/lstItemsItems'}" fixedLayout="Strict" growing="true">
+							<items>
+								<ColumnListItem id="__item2">
+									<cells>
+										<ObjectIdentifier title="{item}" text="{observaciones}"/>
+>>>>>>> df3b05f Cambio de layout
 										<!--<Text text="{item}"              id="_tbl_Itemitem"/>-->
 										<Text text="{cantidad}" id="_tbl_Itemcantidad"/>
 										<Text text="{zona_proceso}" id="_tbl_Itemzona_proceso"/>
@@ -91,6 +110,7 @@
 										<Text text="{anln1}" id="_tbl_Itemanln1"/>
 										<Text text="{kostl}" id="_tbl_Itemkostl"/>
 										<!--<Text text="{observaciones}"     id="_tbl_Itemobservaciones"/>-->
+<<<<<<< Upstream, based on 130c90c67301fce277cc45b2fac578630f2947dd
 						             </cells>
 						        </ColumnListItem></items>
 						    <columns>
@@ -106,11 +126,78 @@
 								<Column id="_tblItem_c_aufnr">               <header> <Label text="aufnr" id="_tblItem_lbl_aufnr"/>                 				</header> </Column>
 								<Column id="_tblItem_c_anln1">               <header> <Label text="Moneda" id="_tblItem_lbl_anln1"/>                				</header> </Column>
 								<Column id="_tblItem_c_kostl">               <header> <Label text="CeCo" id="_tblItem_lbl_kostl"/>                  				</header> </Column>
+=======
+									</cells>
+								</ColumnListItem>
+							</items>
+							<columns>
+								<Column id="_tblItem_c_item">
+									<header>
+										<Label text="Item" id="_tblItem_lbl_item"/>
+									</header>
+								</Column>
+								<Column id="_tblItem_c_cantidad">
+									<header>
+										<Label text="Cantidad" id="_tblItem_lbl_cantidad"/>
+									</header>
+								</Column>
+								<Column id="_tblItem_c_zona_proceso">
+									<header>
+										<Label text="Zona Proceso" id="_tblItem_lbl_zona_proceso"/>
+									</header>
+								</Column>
+								<Column id="_tblItem_c_zona_proceso_desc">
+									<header>
+										<Label text="Descripción Zona Proceso" id="_tblItem_lbl_zona_proceso_desc"/>
+									</header>
+								</Column>
+								<Column id="_tblItem_c_inversion">
+									<header>
+										<Label text="Inversión" id="_tblItem_lbl_inversion"/>
+									</header>
+								</Column>
+								<Column id="_tblItem_c_waers_pos">
+									<header>
+										<Label text="Moneda" id="_tblItem_lbl_waers_pos"/>
+									</header>
+								</Column>
+								<Column id="_tblItem_c_trm">
+									<header>
+										<Label text="TRM" id="_tblItem_lbl_trm"/>
+									</header>
+								</Column>
+								<Column id="_tblItem_c_inversion_cop">
+									<header>
+										<Label text="Inversion" id="_tblItem_lbl_inversion_cop"/>
+									</header>
+								</Column>
+								<Column id="_tblItem_c_waers_cop">
+									<header>
+										<Label text="Moneda" id="_tblItem_lbl_waers_cop"/>
+									</header>
+								</Column>
+								<Column id="_tblItem_c_aufnr">
+									<header>
+										<Label text="aufnr" id="_tblItem_lbl_aufnr"/>
+									</header>
+								</Column>
+								<Column id="_tblItem_c_anln1">
+									<header>
+										<Label text="Moneda" id="_tblItem_lbl_anln1"/>
+									</header>
+								</Column>
+								<Column id="_tblItem_c_kostl">
+									<header>
+										<Label text="CeCo" id="_tblItem_lbl_kostl"/>
+									</header>
+								</Column>
+>>>>>>> df3b05f Cambio de layout
 								<!--<Column id="_tblItem_c_observaciones">       <header> <Label text="Observaciones" 			 id="_tblItem_lbl_observaciones"/> 		    </header> </Column>-->
-						    </columns>
-					</Table>
-					<content/>
+							</columns>
+						</Table>
+						<content/>
 					</IconTabFilter>
+<<<<<<< Upstream, based on 130c90c67301fce277cc45b2fac578630f2947dd
 					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://account" tooltip="{i18n>tab_apro}" text="{i18n>tab_apro}" count="{ path :'/totalAprob'}">
 						<Table noDataText="No hay Aprobadores" id="_table_aprob" items="{  path :'/lstItemsAprobadores'}">
 						    <items>
@@ -140,13 +227,73 @@
 						      </columns>
 					</Table>
 					<content/>
+=======
+					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://account" tooltip="{i18n>tab_apro}" text="{i18n>tab_apro}"
+						count="{ path :'/totalAprob'}">
+						<Table noDataText="No hay Aprobadores" id="_table_aprob" items="{ path :'/lstItemsAprobadores'}">
+							<items>
+								<ColumnListItem id="__item3">
+									<cells>
+										<Text text="{nivel}" id="_tbl_apro_txt_nivel"/>
+										<Text text="{aprobador}" id="_tbl_apro_txt_aprobador"/>
+										<Text text="{cargo}" id="_tbl_apro_txt_cargo"/>
+										<Text text="{responsable}" id="_tbl_apro_txt_responsable"/>
+										<Text text="{responsable_nombre}" id="_tbl_apro_txt_responsable_nombre"/>
+										<Text text="{estado}" id="_tbl_apro_txt_estado"/>
+										<Text text="{estado_desc}" id="_tbl_apro_txt_estado_desc"/>
+										<Text text="{valida_smlv}" id="_tbl_apro_txt_valida_smlv"/>
+										<Text text="{reemplazo}" id="_tbl_apro_txt_reemplazo"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+							<columns>
+								<Column id="_tblApro_c_nivel">
+									<header>
+										<Label text="nivel" id="_tblApr_lbl_nivel"/></header>
+								</Column>
+								<Column id="_tblApro_c_aprobador">
+									<header>
+										<Label text="aprobador" id="_tblApr_lbl_aprobador"/></header>
+								</Column>
+								<Column id="_tblApro_c_cargo">
+									<header>
+										<Label text="cargo" id="_tblApr_lbl_cargo"/></header>
+								</Column>
+								<Column id="_tblApro_c_responsable">
+									<header>
+										<Label text="responsable" id="_tblApr_lbl_responsable"/></header>
+								</Column>
+								<Column id="_tblApro_c_responsable_nombre">
+									<header>
+										<Label text="responsable_nombre" id="_tblApr_lbl_responsable_nombre"/></header>
+								</Column>
+								<Column id="_tblApro_c_estado">
+									<header>
+										<Label text="estado" id="_tblApr_lbl_estado"/></header>
+								</Column>
+								<Column id="_tblApro_c_estado_desc">
+									<header>
+										<Label text="estado_desc" id="_tblApr_lbl_estado_desc"/></header>
+								</Column>
+								<Column id="_tblApro_c_valida_smlv">
+									<header>
+										<Label text="valida_smlv" id="_tblApr_lbl_valida_smlv"/></header>
+								</Column>
+								<Column id="_tblApro_c_reemplazo">
+									<header>
+										<Label text="reemplazo" id="_tblApr_lbl_reemplazo"/></header>
+								</Column>
+							</columns>
+						</Table>
+						<content/>
+>>>>>>> df3b05f Cambio de layout
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarFilter3" icon="sap-icon://documents" tooltip="{i18n>tab_ampl}" text="{i18n>tab_ampl}">
-											<Table noDataText="No hay Ampliaciones" id="_table_ampli" items="{  path :'/lstAmpliaciones'}">
-						    <items>
-						        <ColumnListItem id="__itemampli">
-						            <cells>
-						                <Text text="{tipo}" id="_tbl_txt_amplitipo"/>
+						<Table noDataText="No hay Ampliaciones" id="_table_ampli" items="{ path :'/lstAmpliaciones'}">
+							<items>
+								<ColumnListItem id="__itemampli">
+									<cells>
+										<Text text="{tipo}" id="_tbl_txt_amplitipo"/>
 										<Text text="{consecutivo}" id="_tbl_txt_ampliconsecutivo"/>
 										<Text text="{justificacion}" id="_tbl_txt_amplijustificacion"/>
 										<Text text="{inversion}" id="_tbl_txt_ampliinversion"/>
@@ -156,6 +303,7 @@
 										<Text text="{estado}" id="_tbl_txt_ampliestado"/>
 										<Text text="{estado_desc}" id="_tbl_txt_ampliestado_desc"/>
 										<Text text="{solicitud_tr}" id="_tbl_txt_amplisolicitud_tr"/>
+<<<<<<< Upstream, based on 130c90c67301fce277cc45b2fac578630f2947dd
 						            </cells>
 						        </ColumnListItem></items>
 						    <columns>
@@ -171,19 +319,78 @@
 								<Column id="_tblampli_c_solicitud_tr">   <header> <Label text="Solicitud" id="_tblampli_lbl_amplisolicitud_tr"/> 		</header> </Column>
 						      </columns>
 					</Table>
+=======
+									</cells>
+								</ColumnListItem>
+							</items>
+							<columns>
+								<Column id="_tblampli_c_tipo">
+									<header>
+										<Label text="Tipo" id="_tblampli_lbl_amplitipo"/>
+									</header>
+								</Column>
+								<Column id="_tblampli_c_consecutivo">
+									<header>
+										<Label text="Consecutivo" id="_tblampli_lbl_ampliconsecutivo"/>
+									</header>
+								</Column>
+								<Column id="_tblampli_c_justificacion">
+									<header>
+										<Label text="Justificación" id="_tblampli_lbl_amplijustificacion"/>
+									</header>
+								</Column>
+								<Column id="_tblampli_c_inversion">
+									<header>
+										<Label text="inversión" id="_tblampli_lbl_ampliinversion"/>
+									</header>
+								</Column>
+								<Column id="_tblampli_c_waers">
+									<header>
+										<Label text="Moneda" id="_tblampli_lbl_ampliwaers"/>
+									</header>
+								</Column>
+								<Column id="_tblampli_c_inversion_cop">
+									<header>
+										<Label text="inversion COP" id="_tblampli_lbl_ampliinversion_cop"/>
+									</header>
+								</Column>
+								<Column id="_tblampli_c_waers_cop">
+									<header>
+										<Label text="Moneda COP" id="_tblampli_lbl_ampliwaers_cop"/>
+									</header>
+								</Column>
+								<Column id="_tblampli_c_estado">
+									<header>
+										<Label text="Estado" id="_tblampli_lbl_ampliestado"/>
+									</header>
+								</Column>
+								<Column id="_tblampli_c_estado_desc">
+									<header>
+										<Label text="Descripción" id="_tblampli_lbl_ampliestado_desc"/>
+									</header>
+								</Column>
+								<Column id="_tblampli_c_solicitud_tr">
+									<header>
+										<Label text="Solicitud" id="_tblampli_lbl_amplisolicitud_tr"/>
+									</header>
+								</Column>
+							</columns>
+						</Table>
+>>>>>>> df3b05f Cambio de layout
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarFilter" icon="sap-icon://vds-file" tooltip="{i18n>tab_afin}" text="{i18n>tab_afin}">
 						<Label id="_LinkUrlLabel" text=""/>
-						<Link id="_LinkUrl" text="Análisis Financiero"  target="_blank" press="_OnLinkUrl"/>
-						
+						<Link id="_LinkUrl" text="Análisis Financiero" target="_blank" press="_OnLinkUrl"/>
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
-
-		
 		</semantic:content>
+<<<<<<< Upstream, based on 130c90c67301fce277cc45b2fac578630f2947dd
 
 				<!--<OverflowToolbar>-->
+=======
+		<!--<OverflowToolbar>-->
+>>>>>>> df3b05f Cambio de layout
 		<!--	<Button id="btnConsulta" enabled="true" type="Emphasized" press="f_ConsultaAviso" text="Aceptar"-->
 		<!--		iconFirst="sap-icon://payment-approval"/>-->
 		<!--	<Button id="btnOrdCreate" enabled="true" type="Emphasized" press="f_crearOrden" text="Rechazar"-->
