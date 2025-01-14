@@ -151,7 +151,7 @@ sap.ui.define([
 			//Url Set
 			var Link = this.getView().byId("_LinkUrl");
 			if (url === '') {
-				Link.setText("Sin Archivo");
+				Link.setText("No se encontró información de presupuesto");
 				Link.setEnabled(false);
 			} else {
 				Link.setText(url);
