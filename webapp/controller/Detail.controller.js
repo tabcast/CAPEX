@@ -33,6 +33,8 @@ sap.ui.define([
 				sap.ui.getCore().detailImpliments = new Implements(this);
 			}
 
+			debugger;
+
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
 			this.setModel(oViewModel, "detailView");
 			this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
@@ -95,6 +97,7 @@ sap.ui.define([
 		 * @private
 		 */
 		_onObjectMatched: function(oEvent) {
+			debugger;
 			var sObjectId = oEvent.getParameter("arguments").objectId;
 			var solicituId = oEvent.getParameter("arguments").solicituId;
 			this.f_LoadData(sObjectId, solicituId);
@@ -117,7 +120,7 @@ sap.ui.define([
 				lstItemsAprobadores: []
 			};
 			//URL
-			url = sap.ui.getCore().detailImpliments.getPresupuesto().url;
+			url = sap.ui.getCore().detailImpliments.getPresupuesto().data.url;
 			//TOTALES
 			oDataPresupuesto.totalAmpliac = sap.ui.getCore().detailImpliments.getPresupuesto().total_ampliaciones;
 			oDataPresupuesto.totalItems = sap.ui.getCore().detailImpliments.getPresupuesto().total_items;
@@ -196,6 +199,7 @@ sap.ui.define([
 					}
 				}
 			});
+
 		},
 		_onBindingChange: function() {
 			var oView = this.getView(),
@@ -230,7 +234,6 @@ sap.ui.define([
 
 		},
 		_onMetadataLoaded: function() {
-			debugger;
 			// Store original busy indicator delay for the detail view
 			var iOriginalViewBusyDelay = this.getView().getBusyIndicatorDelay(),
 				oViewModel = this.getModel("detailView"),
@@ -257,9 +260,10 @@ sap.ui.define([
 		 * @inner
 		 */
 		f_LoadData: function(objectId, solicituId) {
-			debugger;
+			//sap.ui.getCore().detailImpliments.clearPresupuesto();
 			sap.ui.getCore().detailImpliments.setPresupuestPost(objectId, solicituId);
-			sap.ui.getCore().detailImpliments.setDataPresupuestoAsyn();
+			//sap.ui.getCore().detailImpliments.setDataPresupuestoAsyn();
+			sap.ui.getCore().detailImpliments.setDataPresupuesto();
 		},
 		/**
 		 * @author: ce_alopez (Johnny López)
@@ -270,11 +274,9 @@ sap.ui.define([
 		 */
 		f_check_data: function() {
 			var oData = "";
-			debugger;
 			oData = sap.ui.getCore().detailImpliments.getPresupuesto();
-			if (typeof oData.data === "undefined") {
-				// sap.ui.getCore().gestionOrder.setCentroTrabajo(vCentro.getText());
-				// oData = sap.ui.getCore().gestionOrder.getCentroTrabajo();
+			if (!oData.hasOwnProperty('data')) {
+				sap.ui.getCore().detailImpliments.setDataPresupuesto();
 			}
 		},
 		onBeforeRendering: function() {},
@@ -402,10 +404,10 @@ sap.ui.define([
 			sTextoSolicitud = sap.ui.getCore().byId("observ");
 
 			sap.ui.getCore().detailImpliments.setTextoSolicitud(sTextoSolicitud.getValue());
-			sap.ui.getCore().fragment.fnCloseFragment(this); 
+			sap.ui.getCore().fragment.fnCloseFragment(this);
 		},
 
-		/** 
+		/**
 		 * @author: ce_alopez (Johnny López)
 		 * @description: Cancelar nota solicitud
 		 * solicitud
@@ -415,7 +417,76 @@ sap.ui.define([
 		 */
 		fnCerrarFragment: function(oEvent) {
 			sap.ui.getCore().fragment.fnCloseFragment(this);
-			 
+		},
+
+		fnSelectIconBar: function(OEvent) {
+			this.f_check_data();
+			this.f_map_data();
+		},
+
+		f_map_data: function() {
+
+			var oDataPresupuesto = "";
+			oDataPresupuesto = {
+				link: "",
+				totalAmpliaciones: 0,
+				totalItems: 0,
+				totalAprob: 0,
+				lstItemsItems: [],
+				lstAmpliaciones: [],
+				lstItemsAprobadores: []
+			};			
+			
+			//URL
+			url = sap.ui.getCore().detailImpliments.getPresupuesto().data.url;
+			//TOTALES
+			oDataPresupuesto.totalAmpliac = sap.ui.getCore().detailImpliments.getPresupuesto().data.total_ampliaciones;
+			oDataPresupuesto.totalItems = sap.ui.getCore().detailImpliments.getPresupuesto().data.total_items;
+			oDataPresupuesto.totalAprob = sap.ui.getCore().detailImpliments.getPresupuesto().data.total_aprobadores;
+
+			//datos para Tablas
+			if (sap.ui.getCore().detailImpliments.getPresupuesto().data.APROBADORES !== null) {
+				oDataPresupuesto.lstItemsAprobadores = sap.ui.getCore().detailImpliments.getPresupuesto().data.APROBADORES.results;
+			} else {
+				oDataPresupuesto.lstItemsAprobadores = "";
+			}
+			if (sap.ui.getCore().detailImpliments.getPresupuesto().data.ITEMS !== null) {
+				oDataPresupuesto.lstItemsItems = sap.ui.getCore().detailImpliments.getPresupuesto().data.ITEMS.results;
+			} else {
+				oDataPresupuesto.lstItemsItems = "";
+			}
+			if (sap.ui.getCore().detailImpliments.getPresupuesto().data.AMPLIACIONES !== null) {
+				oDataPresupuesto.lstAmpliaciones = sap.ui.getCore().detailImpliments.getPresupuesto().data.AMPLIACIONES.results;
+			} else {
+				oDataPresupuesto.lstAmpliaciones = "";
+			}
+			
+			var oModel = new sap.ui.model.json.JSONModel(oDataPresupuesto);
+			var oList = this.getView().byId("_table_aprob");
+			oList.setModel(oModel);
+			var oList_items = this.getView().byId("tbl_items");
+			oList_items.setModel(oModel);
+			var oList_ampli = this.getView().byId("_table_ampli");
+			oList_ampli.setModel(oModel);
+
+			//Url Set
+			var Link = this.getView().byId("_LinkUrl");
+			if (url === '') {
+				Link.setText("No se encontró información de presupuesto");
+				Link.setEnabled(false);
+			} else {
+				Link.setText(url);
+				Link.setEnabled(true);
+			}
+
+			var iconTabBarFilter3 = this.getView().byId("iconTabBarFilter3");
+			iconTabBarFilter3.setCount(oDataPresupuesto.totalAmpliac);
+
+			var iconTabBarFilter2 = this.getView().byId("iconTabBarFilter2");
+			iconTabBarFilter2.setModel(oModel);
+			var iconTabBarFilter1 = this.getView().byId("iconTabBarFilter1");
+			iconTabBarFilter1.setModel(oModel);
+			
 		}
 
 	});

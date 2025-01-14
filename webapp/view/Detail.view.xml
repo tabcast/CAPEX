@@ -28,14 +28,17 @@
 						<Text id="ValorNeto" text="{valor_neto}"/>
 						<Label text="Valor Aprobado"/>
 						<Text id="ValorAprobado" text="{valor_pre_aprobado}"/>
+						<!--<Label text="Estado"/>-->
+						<!--<Text id="Estado" text="{estado} - {estado_desc}"/>-->
 						<Label text="Estado"/>
-						<Text id="Estado" text="{estado} - {estado_desc}"/>
+						<ObjectStatus id="statusEstado" text="{estado} - {estado_desc}"
+							state="{= ${estado} === '3' ? 'Success' : ( ${estado} === '5' || ${estado} ==='6' ) ? 'Error' : 'Warning' }"/>
 					</f:content>
 				</f:SimpleForm>
 				<!--</VBox>-->
 			</Panel>
 			<!--<ObjectHeader id="objectHeader" title="{solicitud}" numberUnit="{waers}"></ObjectHeader>-->
-			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding" >
 				<items>
 					<IconTabFilter id="iconTabBarFilter0" icon="sap-icon://message-information" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>tab_info}">
 						<!--<Label text="111111111"/>-->
@@ -65,10 +68,19 @@
 								<Text id="FechaInicioInfo" text="fecha_inicio"/>
 								<Label text="Valor Neto"/>
 								<Text id="ValorNetoInfo" text="{valor_neto}"/>
-								<Label text="Valor Aprobado"/>
-								<Text id="ValorAprobadoInfo" text="{valor_pre_aprobado}"/>
+								<Label text="Valor preaprobado"/>
+								<Text id="ValorPreaprobadoInfo" text="{valor_pre_aprobado}"/>
 								<Label text="Estado"/>
-								<Text id="EstadoInfo" text="{estado} - {estado_desc}"/>
+								<ObjectStatus id="statusEstadoInfo" text="{estado} - {estado_desc}"
+									state="{= ${estado} === '3' ? 'Success' : ( ${estado} === '5' || ${estado} ==='6' ) ? 'Error' : 'Warning' }"/>
+							    <Label text="Análisis financiero"/>
+								<CheckBox text="" enabled="false" selected="= ${analisis_financiero} === 'X' ? 'true' : 'false'" />
+							    <Label text="Presupuesto"/>
+								<CheckBox text="" enabled="false" selected="= ${presupuesto_ano} === 'X' ? 'true' : 'false'" />	
+								<Label text="Workflow"/>
+								<Text id="workflowInfo" text="{workflow_id}"/>
+								
+									
 							</f:content>
 						</f:SimpleForm>
 						<!--<Table id="lineItemsList" width="auto" updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">-->

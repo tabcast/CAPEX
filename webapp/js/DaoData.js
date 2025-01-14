@@ -34,8 +34,8 @@ sap.ui.define([
 				 * @memberOf module: IDao
 				 * @inner
 				 */
-				setPresupuestoAsyn: function(oModelo, sEntidad, oFilters, oData) {
-					this.daoModel.fnCreateEntityAsync(oModelo, sEntidad, oFilters, oData);
+				setPresupuestoAsyn: function(oModelo, sEntidad, oPostData, oData) {
+					this.daoModel.fnCreateEntityAsync(oModelo, sEntidad, oPostData, oData);
 				},
 
 				/**
@@ -103,7 +103,6 @@ sap.ui.define([
 				createOrder: function(pModelo, pEntidad, pData) {
 					return this.daoModel.fnCreateEntity(pModelo, pEntidad, pData);
 				}
-
 			});
 
 		return data;

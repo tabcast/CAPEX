@@ -1,8 +1,8 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
-	<Dialog id="title" title="TextoSolicitud" class="sapUiContentPadding" escapeHandler="true">
+	<Dialog id="title" title="Comunicado" class="sapUiContentPadding" escapeHandler="true">
 		<content>
 			<l:VerticalLayout width="100%">
-				<Label text="Texto Solicitud"/>
+				<Label text="Comunicado"/>
 				<TextArea id="observ" required="true" editable="true" width="100%"/>
 			</l:VerticalLayout>
 		</content>

@@ -17,7 +17,7 @@ sap.ui.define([
 					this.othis = oThis;
 				},
 
-				/**
+				/** 
 				 * @author: ce_alopez (Johnny López)
 				 * @description method: atributte centro trabajo
 				 * @function
@@ -108,7 +108,7 @@ sap.ui.define([
 				 * @memberOf module: Implements
 				 * @inner
 				 */
-				setDataPresupuestoAsyn: function(sociedad, solicitud) {
+				setDataPresupuestoAsyn: function() {
 					//debugger;
 					var sServiceUrl = "",
 						oModelService = "",
@@ -125,17 +125,44 @@ sap.ui.define([
 					sServiceUrl = this.othis.getView().getModel().sServiceUrl;
 					oModelService = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
 
-					//this.dao.setPresupuestoAsyn(oModelService, "PRESUPUESTO", inPresupuesto, this.presupuesto);
+					this.dao.setPresupuestoAsyn(oModelService, "PRESUPUESTO", inPresupuesto, this.presupuesto);
 
-					this.presupuesto = this.dao.setPresupuesto(oModelService, "PRESUPUESTO", inPresupuesto);
+					// this.presupuesto = this.dao.setPresupuesto(oModelService, "PRESUPUESTO", inPresupuesto);
 
 					// var test = this.dao.setPresupuesto(oModelService, "PRESUPUESTO", inPresupuesto);
 					// return test;
 				},
+				
+				/**
+				 * @author: ce_alopez (Johnny López)
+				 * @description method: set centro trabajo
+				 * @function
+				 * @memberOf module: Implements
+				 * @inner
+				 */
+				setDataPresupuesto: function() {
+					//debugger;
+					var sServiceUrl = "",
+						oModelService = "",
+						inPresupuesto = {};
+
+					///this.presupuesto = {};
+
+					sServiceUrl = this.othis.getView().getModel().sServiceUrl;
+					oModelService = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+
+					///this.presupuestoPost = {};
+					inPresupuesto = this.getPresupuestPost();
+
+					sServiceUrl = this.othis.getView().getModel().sServiceUrl;
+					oModelService = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+
+					this.presupuesto = this.dao.setPresupuesto(oModelService, "PRESUPUESTO", inPresupuesto);
+				},				
 
 				/**
 				 * @author: ce_alopez (Johnny López)
-				 * @description method: get centro trabajo
+				 * @description method: get presupuesto
 				 * @function
 				 * @memberOf module: Implements
 				 * @inner
@@ -144,6 +171,18 @@ sap.ui.define([
 
 					return this.presupuesto.data;
 				},
+				
+				/**
+				 * @author: ce_alopez (Johnny López)
+				 * @description method: inicializar presupuesto
+				 * @function
+				 * @memberOf module: Implements
+				 * @inner
+				 */
+				clearPresupuesto: function() {
+
+					this.presupuesto.data = {};
+				},				
 
 				/**
 				 * @author: EXSSAABARRIO (Johnny López)

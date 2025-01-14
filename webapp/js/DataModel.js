@@ -93,10 +93,10 @@ sap.ui.define([
 					try {
 
 						var fnSuccess = function(data, response) {
-							mensaje = response;
+							mensaje.data = response;
 						};
 						var fnError = function(e) {
-							mensaje = e;
+							mensaje.data = e;
 						};
 
 						//pModelo.create(pEntidad, pDatoEndidad, null, fnSucess, fnError, false);
@@ -124,20 +124,20 @@ sap.ui.define([
 				 * @param {object} pDatoEndidad hace referencia a los dato a enviar a la entidad
 				 * @returns {string} mensaje
 				 */
-				fnCreateEntityAsync: function(pModelo, pEntidad, pData) {
+				fnCreateEntityAsync: function(pModelo, pEntidad, oPostData, oData) {
 
 					try {
 						var fnSucess = function(data, response) {
-							pData.data = response;
+							oData.data = response;
 						};
 						
 						var fnError = function(e) {
-							pData.data = e;
+							oData.data = e;
 						};
 
 
 
-						pModelo.create(pEntidad, pData, {
+						pModelo.create(pEntidad, oPostData, {
 							context: null,
 							success: fnSucess,
 							error: fnError,
@@ -147,10 +147,9 @@ sap.ui.define([
 
 
 					} catch (e) {
-					pData.data = e;
+					oData.data = e;
 					}
 				}
-
 			});
 
 		return dataModel;
