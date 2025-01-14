@@ -417,6 +417,7 @@ sap.ui.define([
 		 */
 		fnCerrarFragment: function(oEvent) {
 			sap.ui.getCore().fragment.fnCloseFragment(this);
+<<<<<<< Upstream, based on b0bffc4b16ca112a340f177995b09c9d8b074084
 		},
 
 		fnSelectIconBar: function(OEvent) {
@@ -487,6 +488,8 @@ sap.ui.define([
 			var iconTabBarFilter1 = this.getView().byId("iconTabBarFilter1");
 			iconTabBarFilter1.setModel(oModel);
 			
+=======
+>>>>>>> 3d06805 Prueba conflicto
 		}
 
 	});
