@@ -402,7 +402,7 @@ sap.ui.define([
 			sTextoSolicitud = sap.ui.getCore().byId("observ");
 
 			sap.ui.getCore().detailImpliments.setTextoSolicitud(sTextoSolicitud.getValue());
-			sap.ui.getCore().fragment.fnCloseFragment(this);
+			sap.ui.getCore().fragment.fnCloseFragment(this); 
 		},
 
 		/** 
