@@ -12,6 +12,8 @@
 						<f:content>
 							<Label text="Solicitud"/>
 							<Text id="Solicitud" text="{solicitud}"/>
+							<Label text="CodigoSociedad" visible="false"/>
+							<Text id="CodigoSociedad" visible="false" text="{bukrs}"/>								
 							<Label text="Sociedad"/>
 							<Text id="Sociedad" text="{bukrs} - {butxt}"/>		
 							<Label text="Centro"/>
@@ -211,10 +213,10 @@
 			<!--	iconFirst="sap-icon://payment-approval"/>-->
 		<!--</semantic:saveAsTileAction>-->
 		<semantic:customFooterContent>
-			<OverflowToolbarButton icon="sap-icon://edit" text="Agregar nota" press="agregarNota" />
-			<Button id="btnCancel" enabled="true" type="Reject" press="test" text="Rechazar"
+			<OverflowToolbarButton icon="sap-icon://edit" text="Agregar nota" press="fnAgregarNota" />
+			<Button id="btnCancel" enabled="true" type="Reject" press="fnCancelar" text="Rechazar"
 				iconFirst="sap-icon://payment-approval"/>			
-			<Button id="btnAcept" enabled="true" type="Accept" press="test" text="Aprobar"
+			<Button id="btnAcept" enabled="true" type="Accept" press="fnAceptar" text="Aprobar"
 				iconFirst="sap-icon://payment-approval"/>
 		</semantic:customFooterContent>
 	</semantic:DetailPage>

@@ -48,6 +48,17 @@ sap.ui.define([
 				setPresupuesto: function(oModelo, sEntidad, pData) {
 					return this.daoModel.fnCreateEntity(oModelo, sEntidad, pData);
 				},
+				
+				/**
+				 * @author: ce_alopez (Johnny López)
+				 * @description interface method: get data work asyn
+				 * @function
+				 * @memberOf module: IDao
+				 * @inner
+				 */
+				setProceso: function(oModelo, sEntidad, pData) {
+					return this.daoModel.fnCreateEntity(oModelo, sEntidad, pData);
+				},				
 
 				/**
 				 * @author: EXSSAABARRIO (Johnny López)

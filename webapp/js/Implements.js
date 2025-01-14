@@ -38,11 +38,21 @@ sap.ui.define([
 				presupuestoPost: {
 					bukrs: "",
 					solicitud: "",
-					ITEMS:[],
-					APROBADORES:[],
-					AMPLIACIONES:[]
+					ITEMS: [],
+					APROBADORES: [],
+					AMPLIACIONES: []
 				},
-/**
+				
+				/**
+				 * @author: ce_alopez (Johnny López)
+				 * @description: atributte texto solicitud
+				 * @function
+				 * @memberOf module: Implements
+				 * @inner
+				 */
+				textoSolicitud: {},				
+				
+				/**
 				 * @author: ce_alopez (Johnny López)
 				 * @description method: set presupuesto post
 				 * @function
@@ -50,14 +60,14 @@ sap.ui.define([
 				 * @inner
 				 */
 				setPresupuestPost: function(sBukrs, sSolicitud) {
-					
+
 					this.presupuestoPost.bukrs = sBukrs;
 					this.presupuestoPost.solicitud = sSolicitud;
 					this.presupuestoPost.ITEMS = [];
 					this.presupuestoPost.APROBADORES = [];
 					this.presupuestoPost.AMPLIACIONES = [];
 				},
-				
+
 				/**
 				 * @author: ce_alopez (Johnny López)
 				 * @description method: get presupuesto post
@@ -67,6 +77,28 @@ sap.ui.define([
 				 */
 				getPresupuestPost: function() {
 					return this.presupuestoPost;
+				},
+				
+				/**
+				 * @author: ce_alopez (Johnny López)
+				 * @description method: set presupuesto post
+				 * @function
+				 * @memberOf module: Implements
+				 * @inner
+				 */
+				setTextoSolicitud: function(sTexto) {
+					this.textoSolicitud = sTexto;
+				},
+				
+				/**
+				 * @author: ce_alopez (Johnny López)
+				 * @description method: get presupuesto post
+				 * @function
+				 * @memberOf module: Implements
+				 * @inner
+				 */
+				getTextoSolicitud: function() {
+					return this.textoSolicitud;
 				},				
 
 				/**
@@ -81,8 +113,7 @@ sap.ui.define([
 					var sServiceUrl = "",
 						oModelService = "",
 						inPresupuesto = {};
-						
-						
+
 					///this.presupuesto = {};
 
 					sServiceUrl = this.othis.getView().getModel().sServiceUrl;
@@ -90,15 +121,14 @@ sap.ui.define([
 
 					///this.presupuestoPost = {};
 					inPresupuesto = this.getPresupuestPost();
-					
 
 					sServiceUrl = this.othis.getView().getModel().sServiceUrl;
 					oModelService = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
 
 					//this.dao.setPresupuestoAsyn(oModelService, "PRESUPUESTO", inPresupuesto, this.presupuesto);
-					
+
 					this.presupuesto = this.dao.setPresupuesto(oModelService, "PRESUPUESTO", inPresupuesto);
-					
+
 					// var test = this.dao.setPresupuesto(oModelService, "PRESUPUESTO", inPresupuesto);
 					// return test;
 				},
@@ -113,11 +143,7 @@ sap.ui.define([
 				getPresupuesto: function() {
 
 					return this.presupuesto.data;
-				},				
-				
-				
-				
-				
+				},
 
 				/**
 				 * @author: EXSSAABARRIO (Johnny López)
@@ -223,8 +249,6 @@ sap.ui.define([
 					oFechaFin.setText(dateIni);
 
 				},
-
-				
 
 				/**
 				 * @author: EXSSAABARRIO (Johnny López)
@@ -1578,6 +1602,43 @@ sap.ui.define([
 					vLabelText = this.othis.getView().getModel("i18n").getResourceBundle().getText("detailText");
 
 					vLabel.setText(vLabelText + " " + vText.getValue().length);
+				},
+
+				/**
+				 * @author: ce_alopez (Johnny López)
+				 * @description method: set centro trabajo
+				 * @function
+				 * @memberOf module: Implements
+				 * @inner
+				 */
+				executeActionButton: function(sociedad, solicitud, aceptar, rechazar, texto) {
+					//debugger;
+					var sServiceUrl = "",
+						oModelService = "",
+						postProceso = {},
+						responseProceso = {};
+
+					///this.presupuesto = {};
+
+					sServiceUrl = this.othis.getView().getModel().sServiceUrl;
+					oModelService = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+
+					///this.presupuestoPost = {};
+					postProceso = {
+						bukrs: sociedad,
+						solicitud: solicitud,
+						aceptar: aceptar,
+						rechazar: rechazar,
+						comunicacion: texto,
+						MENSAJE: []
+					};
+					
+					sServiceUrl = this.othis.getView().getModel().sServiceUrl;
+					oModelService = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+
+					responseProceso = this.presupuesto = this.dao.setProceso(oModelService, "PROCESO", postProceso);
+
+					return responseProceso;
 				}
 
 			});

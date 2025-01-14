@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+	<Dialog id="title" title="TextoSolicitud" class="sapUiContentPadding" escapeHandler="true">
+		<content>
+			<l:VerticalLayout width="100%">
+				<Label text="Texto Solicitud"/>
+				<TextArea id="observ" required="true" editable="true" width="100%"/>
+			</l:VerticalLayout>
+		</content>
+		<buttons>
+			<Button id="btnAceptarOper" icon="sap-icon://accept" press="fnTextoSolicitud"/>
+			<Button id="btnCerrarOper" icon="sap-icon://sys-cancel" press="fnCerrarFragment"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

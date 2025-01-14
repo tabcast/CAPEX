@@ -3,10 +3,12 @@ sap.ui.define([
 	"co/com/postobon/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
 	"co/com/postobon/model/formatter",
-	"co/com/postobon/js/Implements"
-], function(BaseController, JSONModel, formatter, Implements) {
+	"co/com/postobon/js/Implements",
+	"sap/m/MessageBox",
+	"co/com/postobon/js/operationsFragment"
+], function(BaseController, JSONModel, formatter, Implements, MessageBox, opFragment) {
 	"use strict";
-	
+
 	var url;
 	return BaseController.extend("co.com.postobon.controller.Detail", {
 		formatter: formatter,
@@ -22,9 +24,15 @@ sap.ui.define([
 				delay: 0,
 				lineItemListTitle: this.getResourceBundle().getText("detailLineItemTableHeading")
 			});
+
+			if (typeof sap.ui.getCore().fragment === "undefined") {
+				sap.ui.getCore().fragment = new opFragment(this);
+			}
+
 			if (typeof sap.ui.getCore().detailImpliments === "undefined") {
 				sap.ui.getCore().detailImpliments = new Implements(this);
 			}
+
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
 			this.setModel(oViewModel, "detailView");
 			this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
@@ -114,7 +122,7 @@ sap.ui.define([
 			oDataPresupuesto.totalAmpliac = sap.ui.getCore().detailImpliments.getPresupuesto().total_ampliaciones;
 			oDataPresupuesto.totalItems = sap.ui.getCore().detailImpliments.getPresupuesto().total_items;
 			oDataPresupuesto.totalAprob = sap.ui.getCore().detailImpliments.getPresupuesto().total_aprobadores;
-			
+
 			//datos para Tablas
 			if (sap.ui.getCore().detailImpliments.getPresupuesto().APROBADORES !== null) {
 				oDataPresupuesto.lstItemsAprobadores = sap.ui.getCore().detailImpliments.getPresupuesto().APROBADORES.results;
@@ -126,13 +134,12 @@ sap.ui.define([
 			} else {
 				oDataPresupuesto.lstItemsItems = "";
 			}
-			if(sap.ui.getCore().detailImpliments.getPresupuesto().AMPLIACIONES !== null) {
+			if (sap.ui.getCore().detailImpliments.getPresupuesto().AMPLIACIONES !== null) {
 				oDataPresupuesto.lstAmpliaciones = sap.ui.getCore().detailImpliments.getPresupuesto().AMPLIACIONES.results;
 			} else {
 				oDataPresupuesto.lstAmpliaciones = "";
 			}
-			
-			
+
 			var oModel = new sap.ui.model.json.JSONModel(oDataPresupuesto);
 			var oList = this.getView().byId("_table_aprob");
 			oList.setModel(oModel);
@@ -140,31 +147,31 @@ sap.ui.define([
 			oList_items.setModel(oModel);
 			var oList_ampli = this.getView().byId("_table_ampli");
 			oList_ampli.setModel(oModel);
-			
+
 			//Url Set
 			var Link = this.getView().byId("_LinkUrl");
-			if ( url === '' ){
+			if (url === '') {
 				Link.setText("Sin Archivo");
 				Link.setEnabled(false);
-			}else{
+			} else {
 				Link.setText(url);
 				Link.setEnabled(true);
 			}
-			
+
 			var iconTabBarFilter3 = this.getView().byId("iconTabBarFilter3");
 			iconTabBarFilter3.setCount(oDataPresupuesto.totalAmpliac);
-			
+
 			var iconTabBarFilter2 = this.getView().byId("iconTabBarFilter2");
 			iconTabBarFilter2.setModel(oModel);
 			var iconTabBarFilter1 = this.getView().byId("iconTabBarFilter1");
 			iconTabBarFilter1.setModel(oModel);
 		},
-		
+
 		_OnLinkUrl: function() {
-		if(url!=='')
-		 window.open(url, '_blank');
+			if (url !== '')
+				window.open(url, '_blank');
 		},
-		
+
 		/**
 		 * Binds the view to the object path. Makes sure that detail view displays
 		 * a busy indicator while data for the corresponding element binding is loaded.
@@ -268,9 +275,96 @@ sap.ui.define([
 		},
 		onBeforeRendering: function() {},
 		onAfterRendering: function() {},
+
 		/**
-		 *@memberOf co.com.postobon.controller.Detail
+		 * @author: ce_alopez (Johnny López)
+		 * @description: Rechazar solicitud
+		 * @function
+		 * @memberOf module: Detalle
+		 * @inner
 		 */
+		fnCancelar: function(oEvent) {
+			var oResponseProceso = {},
+				sSolicitud = {},
+				sCodigoSociedad = {};
+
+			sSolicitud = this.getView().byId("Solicitud").getText();
+			sCodigoSociedad = this.getView().byId("CodigoSociedad").getText();
+			oResponseProceso = sap.ui.getCore().detailImpliments.executeActionButton(sSolicitud, sCodigoSociedad, "", "X", "");
+
+			if (oResponseProceso.data) {
+
+				MessageBox.show(
+					"Se rechazo la solicitud", {
+						icon: MessageBox.Icon.ERROR,
+						title: "Rechazada"
+							// actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+							// onClose: function (oAction) {
+							// 	/ * do something * /
+							// }
+					}
+				);
+
+				return;
+			}
+		},
+
+		/**
+		 * @author: ce_alopez (Johnny López)
+		 * @description: Aceptar solicitud
+		 * @function
+		 * @memberOf module: Detalle
+		 * @inner
+		 */
+		fnAceptar: function(oEvent) {
+			var oResponseProceso = {},
+				sSolicitud = {},
+				sCodigoSociedad = {};
+
+			sSolicitud = this.getView().byId("Solicitud").getText();
+			sCodigoSociedad = this.getView().byId("CodigoSociedad").getText();
+			oResponseProceso = sap.ui.getCore().detailImpliments.executeActionButton(sSolicitud, sCodigoSociedad, "X", "", "");
+
+			if (oResponseProceso.data) {
+
+				MessageBox.show(
+					"Se rechazo la solicitud", {
+						icon: MessageBox.Icon.SUCCESS,
+						title: "Aprobada"
+							// actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+							// onClose: function (oAction) {
+							// 	/ * do something * /
+							// }
+					}
+				);
+
+				return;
+			}
+		},
+
+		/**
+		 * @author: ce_alopez (Johnny López)
+		 * @description: Agregar nota solicitud
+		 * solicitud
+		 * @function
+		 * @memberOf module: Detalle
+		 * @inner
+		 */
+		fnAgregarNota: function(oEvent) {
+			sap.ui.getCore().fragment.fnOpenDialog("co.com.postobon.view.fragment.texto", this);
+		},
+
+		/**
+		 * @author: ce_alopez (Johnny López)
+		 * @description: Confirmar nota solicitud
+		 * solicitud
+		 * @function
+		 * @memberOf module: Detalle
+		 * @inner
+		 */
+		fnTextoSolicitud: function(oEvent) {
+			sap.ui.getCore().fragment.fnCloseFragment(this);
+		}
 
 	});
 });
