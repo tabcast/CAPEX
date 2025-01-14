@@ -105,7 +105,7 @@ sap.ui.define([
 				});
 				this._bindView("/" + sObjectPath);
 			}.bind(this));
-			debugger;
+
 			var oDataPresupuesto = "";
 			oDataPresupuesto = {
 				link: "",
@@ -180,7 +180,6 @@ sap.ui.define([
 		 * @private
 		 */
 		_bindView: function(sObjectPath) {
-			debugger;
 			// Set busy indicator during view binding
 			var oViewModel = this.getModel("detailView");
 			// If the view was not bound yet its not busy, only if the binding requests data it is set to busy again
@@ -209,12 +208,14 @@ sap.ui.define([
 				this.getOwnerComponent().oListSelector.clearMasterListSelection();
 				return;
 			}
+
 			var sPath = oElementBinding.getPath(),
 				oResourceBundle = this.getResourceBundle(),
 				oObject = oView.getModel().getObject(sPath),
 				sObjectId = oObject.bukrs,
 				sObjectName = oObject.solicitud,
 				oViewModel = this.getModel("detailView");
+
 			this.getOwnerComponent().oListSelector.selectAListItem(sPath);
 			oViewModel.setProperty("/saveAsTileTitle", oResourceBundle.getText("shareSaveTileAppTitle", [sObjectName]));
 			oViewModel.setProperty("/shareOnJamTitle", sObjectName);
@@ -224,6 +225,9 @@ sap.ui.define([
 				sObjectId,
 				location.href
 			]));
+
+			sap.ui.getCore().detailImpliments.setTextoSolicitud("");
+
 		},
 		_onMetadataLoaded: function() {
 			debugger;
@@ -290,14 +294,15 @@ sap.ui.define([
 
 			sSolicitud = this.getView().byId("Solicitud").getText();
 			sCodigoSociedad = this.getView().byId("CodigoSociedad").getText();
-			oResponseProceso = sap.ui.getCore().detailImpliments.executeActionButton(sSolicitud, sCodigoSociedad, "", "X", "");
+			oResponseProceso = sap.ui.getCore().detailImpliments.executeActionButton(sSolicitud, sCodigoSociedad, "", "X", sap.ui.getCore().detailImpliments
+				.getTextoSolicitud());
 
-			if (oResponseProceso.data) {
+			if (oResponseProceso.data !== null) {
 
 				MessageBox.show(
-					"Se rechazo la solicitud", {
+					"No se rechazo la solicitud", {
 						icon: MessageBox.Icon.ERROR,
-						title: "Rechazada"
+						title: "No Rechazada"
 							// actions: [MessageBox.Action.YES, MessageBox.Action.NO],
 							// onClose: function (oAction) {
 							// 	/ * do something * /
@@ -306,6 +311,19 @@ sap.ui.define([
 				);
 
 				return;
+			} else if (oResponseProceso.data === null) {
+
+				MessageBox.show(
+					"Se rechazo la solicitud", {
+						icon: MessageBox.Icon.SUCCESS,
+						title: "Rechazada"
+							// actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+							// onClose: function (oAction) {
+							// 	/ * do something * /
+							// }
+					}
+				);
+
 			}
 		},
 
@@ -323,12 +341,27 @@ sap.ui.define([
 
 			sSolicitud = this.getView().byId("Solicitud").getText();
 			sCodigoSociedad = this.getView().byId("CodigoSociedad").getText();
-			oResponseProceso = sap.ui.getCore().detailImpliments.executeActionButton(sSolicitud, sCodigoSociedad, "X", "", "");
+			oResponseProceso = sap.ui.getCore().detailImpliments.executeActionButton(sSolicitud, sCodigoSociedad, "X", "", sap.ui.getCore().detailImpliments
+				.getTextoSolicitud());
 
-			if (oResponseProceso.data) {
+			if (oResponseProceso.data !== null) {
 
 				MessageBox.show(
-					"Se rechazo la solicitud", {
+					"No se aprobó la solicitud", {
+						icon: MessageBox.Icon.ERROR,
+						title: "No aprobada"
+							// actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+							// onClose: function (oAction) {
+							// 	/ * do something * /
+							// }
+					}
+				);
+
+				return;
+			} else if (oResponseProceso.data !== null) {
+
+				MessageBox.show(
+					"Se aprobo solicitud", {
 						icon: MessageBox.Icon.SUCCESS,
 						title: "Aprobada"
 							// actions: [MessageBox.Action.YES, MessageBox.Action.NO],
@@ -338,7 +371,6 @@ sap.ui.define([
 					}
 				);
 
-				return;
 			}
 		},
 
@@ -351,7 +383,10 @@ sap.ui.define([
 		 * @inner
 		 */
 		fnAgregarNota: function(oEvent) {
+			var sTextoSolicitud = "";
 			sap.ui.getCore().fragment.fnOpenDialog("co.com.postobon.view.fragment.texto", this);
+			sTextoSolicitud = sap.ui.getCore().byId("observ");
+			sTextoSolicitud.setValue(sap.ui.getCore().detailImpliments.getTextoSolicitud());
 		},
 
 		/**
@@ -363,6 +398,22 @@ sap.ui.define([
 		 * @inner
 		 */
 		fnTextoSolicitud: function(oEvent) {
+			var sTextoSolicitud = "";
+			sTextoSolicitud = sap.ui.getCore().byId("observ");
+
+			sap.ui.getCore().detailImpliments.setTextoSolicitud(sTextoSolicitud.getValue());
+			sap.ui.getCore().fragment.fnCloseFragment(this);
+		},
+
+		/**
+		 * @author: ce_alopez (Johnny López)
+		 * @description: Cancelar nota solicitud
+		 * solicitud
+		 * @function
+		 * @memberOf module: Detalle
+		 * @inner
+		 */
+		fnCerrarFragment: function(oEvent) {
 			sap.ui.getCore().fragment.fnCloseFragment(this);
 		}
 
