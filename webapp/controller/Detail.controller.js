@@ -405,7 +405,7 @@ sap.ui.define([
 			sap.ui.getCore().fragment.fnCloseFragment(this);
 		},
 
-		/**
+		/** 
 		 * @author: ce_alopez (Johnny López)
 		 * @description: Cancelar nota solicitud
 		 * solicitud
