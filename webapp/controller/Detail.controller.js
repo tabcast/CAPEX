@@ -415,7 +415,7 @@ sap.ui.define([
 		 */
 		fnCerrarFragment: function(oEvent) {
 			sap.ui.getCore().fragment.fnCloseFragment(this);
-			
+			 
 		}
 
 	});
