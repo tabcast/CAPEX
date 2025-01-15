@@ -217,27 +217,27 @@
 							<items>
 								<ColumnListItem id="__item3">
 									<cells>
-										<Text text="{nivel}" id="_tbl_apro_txt_nivel"/>
-										<Text text="{aprobador}" id="_tbl_apro_txt_aprobador"/>
+										<!--<Text text="{nivel}" id="_tbl_apro_txt_nivel"/>-->
+										<!--<Text text="{aprobador}" id="_tbl_apro_txt_aprobador"/>-->
 										<Text text="{cargo}" id="_tbl_apro_txt_cargo"/>
 										<!--<Text text="{responsable}" id="_tbl_apro_txt_responsable"/>-->
 										<Text text="{responsable_nombre}" id="_tbl_apro_txt_responsable_nombre"/>
 										<!--<Text text="{estado}" id="_tbl_apro_txt_estado"/>-->
 										<Text text="{estado_desc}" id="_tbl_apro_txt_estado_desc"/>
-										<Text text="{valida_smlv}" id="_tbl_apro_txt_valida_smlv"/>
-										<Text text="{reemplazo}" id="_tbl_apro_txt_reemplazo"/>
+										<!--<Text text="{valida_smlv}" id="_tbl_apro_txt_valida_smlv"/>-->
+										<!--<Text text="{reemplazo}" id="_tbl_apro_txt_reemplazo"/>-->
 									</cells>
 								</ColumnListItem>
 							</items>
 							<columns>
-								<Column id="_tblApro_c_nivel">
-									<header>
-										<Label text="Nivel" id="_tblApr_lbl_nivel"/></header>
-								</Column>
-								<Column id="_tblApro_c_aprobador">
-									<header>
-										<Label text="Aprobador" id="_tblApr_lbl_aprobador"/></header>
-								</Column>
+								<!--<Column id="_tblApro_c_nivel">-->
+								<!--	<header>-->
+								<!--		<Label text="Nivel" id="_tblApr_lbl_nivel"/></header>-->
+								<!--</Column>-->
+								<!--<Column id="_tblApro_c_aprobador">-->
+								<!--	<header>-->
+								<!--		<Label text="Aprobador" id="_tblApr_lbl_aprobador"/></header>-->
+								<!--</Column>-->
 								<Column id="_tblApro_c_cargo">
 									<header>
 										<Label text="Cargo" id="_tblApr_lbl_cargo"/></header>
@@ -258,20 +258,20 @@
 									<header>
 										<Label text="Estado" id="_tblApr_lbl_estado_desc"/></header>
 								</Column>
-								<Column id="_tblApro_c_valida_smlv">
-									<header>
-										<Label text="ValSMLV" id="_tblApr_lbl_valida_smlv"/></header>
-								</Column>
-								<Column id="_tblApro_c_reemplazo">
-									<header>
-										<Label text="Reemplazo" id="_tblApr_lbl_reemplazo"/></header>
-								</Column>
+								<!--<Column id="_tblApro_c_valida_smlv">-->
+								<!--	<header>-->
+								<!--		<Label text="ValSMLV" id="_tblApr_lbl_valida_smlv"/></header>-->
+								<!--</Column>-->
+								<!--<Column id="_tblApro_c_reemplazo">-->
+								<!--	<header>-->
+								<!--		<Label text="Reemplazo" id="_tblApr_lbl_reemplazo"/></header>-->
+								<!--</Column>-->
 							</columns>
 						</Table>
 						<content/>
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarFilter3" icon="sap-icon://documents" tooltip="{i18n>tab_ampl}" text="{i18n>tab_ampl}">
-						<Table noDataText="No hay Ampliaciones" id="_table_ampli" items="{ path :'/lstAmpliaciones'}">
+						<Table noDataText="No hay Ampliaciones y traslados" id="_table_ampli" items="{ path :'/lstAmpliaciones'}">
 							<items>
 								<ColumnListItem id="__itemampli">
 									<cells>
