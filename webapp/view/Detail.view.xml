@@ -113,11 +113,13 @@
 						<!--</Table>						-->
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarF6" icon="sap-icon://attachment-text-file" tooltip="{i18n>tab_textos}" text="{i18n>tab_textos}">
-						<Carousel loop="true">
-							<Text text="prueba texto"/>
-							<Text text="prueba texto2"/>
-							<Text text="prueba texto3"/>
-							<Text text="prueba texto4"/>
+						<Carousel loop="true" >
+						
+								<StandardListItem id="listItem1" title="Descripción" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false" />
+								<StandardListItem id="listItem2" title="Porque se requiere?" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false" />
+								<StandardListItem id="listItem3" title="Beneficios esperados" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false" />
+								<StandardListItem id="listItem4" title="Consecuencias si no se realiza" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false" />
+								<StandardListItem id="listItem5" title="Comunicación" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false" />
 						</Carousel>
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://numbered-text" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>tab_item}"

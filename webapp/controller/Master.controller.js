@@ -222,10 +222,12 @@ sap.ui.define([
 			_showDetail : function (oItem) {
 				debugger;
 				var bReplace = !Device.system.phone;
+				sap.ui.getCore().fragment.fnOpenDialog("co.com.postobon.view.fragment.BusyDialog", this);
 				this.getRouter().navTo("object", {
 					objectId : oItem.getBindingContext().getProperty("bukrs"),
 					solicituId : oItem.getBindingContext().getProperty("solicitud")
 				}, bReplace);
+				sap.ui.getCore().fragment.fnCloseFragment(this);
 			},
 
 			/**

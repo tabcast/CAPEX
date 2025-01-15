@@ -95,12 +95,14 @@ sap.ui.define([
 		 * @private
 		 */
 		_onObjectMatched: function(oEvent) {
+			sap.ui.getCore().fragment.fnOpenDialog("co.com.postobon.view.fragment.BusyDialog", this);
 			debugger;
 			var sObjectId = oEvent.getParameter("arguments").objectId;
 			var solicituId = oEvent.getParameter("arguments").solicituId;
-			sap.ui.getCore().fragment.fnOpenDialog("co.com.postobon.view.fragment.BusyDialog", this);
-			jQuery.sap.delayedCall(500, this, function () {
-			    this.f_LoadData(sObjectId, solicituId);
+			
+					
+			this.f_LoadData(sObjectId, solicituId);					
+			jQuery.sap.delayedCall(1500, this, function () {
 				sap.ui.getCore().fragment.fnCloseFragment(this);
 			});			
 			
@@ -114,6 +116,11 @@ sap.ui.define([
 
 			var oDataPresupuesto = "";
 			oDataPresupuesto = {
+				txtDescripcion : "",
+				txtRequiere : "",
+				txtBeneficios : "",
+				txtConsecuencias : "",
+				txtcomunicaciones : "",
 				link: "",
 				totalAmpliaciones: 0,
 				totalItems: 0,
@@ -122,6 +129,29 @@ sap.ui.define([
 				lstAmpliaciones: [],
 				lstItemsAprobadores: []
 			};
+			
+			//Textos
+			oDataPresupuesto.txtDescripcion = sap.ui.getCore().detailImpliments.getPresupuesto().texto_descripcion;
+			var listItem1 = this.getView().byId("listItem1");
+			listItem1.setDescription(oDataPresupuesto.txtDescripcion);
+			
+			oDataPresupuesto.txtRequiere = sap.ui.getCore().detailImpliments.getPresupuesto().texto_requiere;
+			var listItem2 = this.getView().byId("listItem2");
+			listItem2.setDescription(oDataPresupuesto.txtRequiere);
+			
+			oDataPresupuesto.txtBeneficios = sap.ui.getCore().detailImpliments.getPresupuesto().texto_beneficios;
+			var listItem3 = this.getView().byId("listItem3");
+			listItem3.setDescription(oDataPresupuesto.txtBeneficios);
+			
+			oDataPresupuesto.txtConsecuencias = sap.ui.getCore().detailImpliments.getPresupuesto().texto_consecuencias;
+			var listItem4 = this.getView().byId("listItem4");
+			listItem4.setDescription(oDataPresupuesto.txtConsecuencias);
+			
+			oDataPresupuesto.txtcomunicaciones = sap.ui.getCore().detailImpliments.getPresupuesto().texto_comunicacion;
+			var listItem5 = this.getView().byId("listItem5");
+			listItem5.setDescription(oDataPresupuesto.txtcomunicaciones);
+			
+			
 			//URL
 			url = sap.ui.getCore().detailImpliments.getPresupuesto().url;
 			//TOTALES
@@ -171,6 +201,8 @@ sap.ui.define([
 			iconTabBarFilter2.setModel(oModel);
 			var iconTabBarFilter1 = this.getView().byId("iconTabBarFilter1");
 			iconTabBarFilter1.setModel(oModel);
+			
+		
 		},
 
 		_OnLinkUrl: function() {
@@ -340,6 +372,7 @@ sap.ui.define([
 		 * @inner
 		 */
 		fnAceptar: function(oEvent) {
+			debugger;
 			var oResponseProceso = {},
 				sSolicitud = {},
 				sCodigoSociedad = {};
