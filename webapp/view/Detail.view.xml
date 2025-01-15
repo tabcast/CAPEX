@@ -14,7 +14,7 @@
 					labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1"
 					columnsL="1" columnsM="1" singleContainerFullSize="false">
 					<f:content>
-						<Label text="Solicitud"/>
+						<Label text="Solicitud"/> 
 						<Text id="Solicitud" text="{solicitud}"/>
 						<Label text="CodigoSociedad" visible="false"/>
 						<Text id="CodigoSociedad" visible="false" text="{bukrs}"/>
