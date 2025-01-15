@@ -33,8 +33,6 @@ sap.ui.define([
 				sap.ui.getCore().detailImpliments = new Implements(this);
 			}
 
-			debugger;
-
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
 			this.setModel(oViewModel, "detailView");
 			this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
@@ -120,7 +118,7 @@ sap.ui.define([
 				lstItemsAprobadores: []
 			};
 			//URL
-			url = sap.ui.getCore().detailImpliments.getPresupuesto().data.url;
+			url = sap.ui.getCore().detailImpliments.getPresupuesto().url;
 			//TOTALES
 			oDataPresupuesto.totalAmpliac = sap.ui.getCore().detailImpliments.getPresupuesto().total_ampliaciones;
 			oDataPresupuesto.totalItems = sap.ui.getCore().detailImpliments.getPresupuesto().total_items;
@@ -417,7 +415,6 @@ sap.ui.define([
 		 */
 		fnCerrarFragment: function(oEvent) {
 			sap.ui.getCore().fragment.fnCloseFragment(this);
-<<<<<<< Upstream, based on b0bffc4b16ca112a340f177995b09c9d8b074084
 		},
 
 		fnSelectIconBar: function(OEvent) {
@@ -487,9 +484,6 @@ sap.ui.define([
 			iconTabBarFilter2.setModel(oModel);
 			var iconTabBarFilter1 = this.getView().byId("iconTabBarFilter1");
 			iconTabBarFilter1.setModel(oModel);
-			
-=======
->>>>>>> 3d06805 Prueba conflicto
 		}
 
 	});

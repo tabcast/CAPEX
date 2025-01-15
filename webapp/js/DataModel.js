@@ -93,10 +93,10 @@ sap.ui.define([
 					try {
 
 						var fnSuccess = function(data, response) {
-							mensaje.data = response;
+							mensaje = response;
 						};
 						var fnError = function(e) {
-							mensaje.data = e;
+							mensaje = e;
 						};
 
 						//pModelo.create(pEntidad, pDatoEndidad, null, fnSucess, fnError, false);
@@ -128,11 +128,11 @@ sap.ui.define([
 
 					try {
 						var fnSucess = function(data, response) {
-							oData.data = response;
+							oData = response;
 						};
 						
 						var fnError = function(e) {
-							oData.data = e;
+							oData = e;
 						};
 
 
