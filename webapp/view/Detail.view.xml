@@ -19,7 +19,7 @@
 						<Label text="CodigoSociedad" visible="false"/>
 						<Text id="CodigoSociedad" visible="false" text="{bukrs}"/>
 						<Label text="Sociedad"/>
-						<Text id="Sociedad" text="{bukrs} - {butxt}"/>
+						<Text id="Sociedad" text="{bukrs} - {butxt}"/> 
 						<Label text="Centro"/>
 						<Text id="Centro" text="{ubicacion}-{ubicacion_nombre}"/>
 						<Label text="Responsable"/>
