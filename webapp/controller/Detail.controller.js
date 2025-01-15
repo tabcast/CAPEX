@@ -124,7 +124,7 @@ sap.ui.define([
 				link: "",
 				totalAmpliaciones: 0,
 				totalItems: 0,
-				totalAprob: 0,
+				totalAprob: 0, 
 				lstItemsItems: [],
 				lstAmpliaciones: [],
 				lstItemsAprobadores: []
