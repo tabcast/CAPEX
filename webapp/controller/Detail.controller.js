@@ -13,7 +13,7 @@ sap.ui.define([
 	return BaseController.extend("co.com.postobon.controller.Detail", {
 		formatter: formatter,
 		/* =========================================================== */
-		/* lifecycle methods                                           */
+		/* lifecycle methods                                           */ 
 		/* =========================================================== */
 		onInit: function() {
 			// Model used to manipulate control states. The chosen values make sure,
