@@ -114,8 +114,8 @@
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarF6" icon="sap-icon://attachment-text-file" tooltip="{i18n>tab_textos}" text="{i18n>tab_textos}">
 						<Carousel loop="true" >
-						
-								<StandardListItem id="listItem1" title="Descripción" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false" />
+								<StandardListItem id="listItem1" title="Descripción" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false">
+									</StandardListItem>
 								<StandardListItem id="listItem2" title="Porque se requiere?" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false" />
 								<StandardListItem id="listItem3" title="Beneficios esperados" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false" />
 								<StandardListItem id="listItem4" title="Consecuencias si no se realiza" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false" />
@@ -138,9 +138,9 @@
 										<Text text="{trm}" id="_tbl_Itemtrm"/>
 										<Text text="{inversion_cop}" id="_tbl_Iteminversion_cop"/>
 										<Text text="{waers_cop}" id="_tbl_Itemwaers_cop"/>
-										<Text text="{aufnr}" id="_tbl_Itemaufnr"/>
-										<Text text="{anln1}" id="_tbl_Itemanln1"/>
-										<Text text="{kostl}" id="_tbl_Itemkostl"/>
+										<!--<Text text="{aufnr}" id="_tbl_Itemaufnr"/>-->
+										<!--<Text text="{anln1}" id="_tbl_Itemanln1"/>-->
+										<!--<Text text="{kostl}" id="_tbl_Itemkostl"/>-->
 										<!--<Text text="{observaciones}"     id="_tbl_Itemobservaciones"/>-->
 									</cells>
 								</ColumnListItem>
@@ -153,17 +153,17 @@
 								</Column>
 								<Column id="_tblItem_c_cantidad">
 									<header>
-										<Label text="Cantidad" id="_tblItem_lbl_cantidad"/>
+										<Label text="Cant." id="_tblItem_lbl_cantidad"/>
 									</header>
 								</Column>
 								<Column id="_tblItem_c_zona_proceso">
 									<header>
-										<Label text="Zona Proceso" id="_tblItem_lbl_zona_proceso"/>
+										<Label text="Zona" id="_tblItem_lbl_zona_proceso"/>
 									</header>
 								</Column>
 								<Column id="_tblItem_c_zona_proceso_desc">
 									<header>
-										<Label text="Descripción Zona Proceso" id="_tblItem_lbl_zona_proceso_desc"/>
+										<Label text="Descripción" id="_tblItem_lbl_zona_proceso_desc"/>
 									</header>
 								</Column>
 								<Column id="_tblItem_c_inversion">
@@ -183,7 +183,7 @@
 								</Column>
 								<Column id="_tblItem_c_inversion_cop">
 									<header>
-										<Label text="Inversion" id="_tblItem_lbl_inversion_cop"/>
+										<Label text="Inversión" id="_tblItem_lbl_inversion_cop"/>
 									</header>
 								</Column>
 								<Column id="_tblItem_c_waers_cop">
@@ -191,21 +191,21 @@
 										<Label text="Moneda" id="_tblItem_lbl_waers_cop"/>
 									</header>
 								</Column>
-								<Column id="_tblItem_c_aufnr">
-									<header>
-										<Label text="aufnr" id="_tblItem_lbl_aufnr"/>
-									</header>
-								</Column>
-								<Column id="_tblItem_c_anln1">
-									<header>
-										<Label text="Moneda" id="_tblItem_lbl_anln1"/>
-									</header>
-								</Column>
-								<Column id="_tblItem_c_kostl">
-									<header>
-										<Label text="CeCo" id="_tblItem_lbl_kostl"/>
-									</header>
-								</Column>
+								<!--<Column id="_tblItem_c_aufnr">-->
+								<!--	<header>-->
+								<!--		<Label text="aufnr" id="_tblItem_lbl_aufnr"/>-->
+								<!--	</header>-->
+								<!--</Column>-->
+								<!--<Column id="_tblItem_c_anln1">-->
+								<!--	<header>-->
+								<!--		<Label text="Moneda" id="_tblItem_lbl_anln1"/>-->
+								<!--	</header>-->
+								<!--</Column>-->
+								<!--<Column id="_tblItem_c_kostl">-->
+								<!--	<header>-->
+								<!--		<Label text="CeCo" id="_tblItem_lbl_kostl"/>-->
+								<!--	</header>-->
+								<!--</Column>-->
 								<!--<Column id="_tblItem_c_observaciones">       <header> <Label text="Observaciones" 			 id="_tblItem_lbl_observaciones"/> 		    </header> </Column>-->
 							</columns>
 						</Table>
@@ -220,9 +220,9 @@
 										<Text text="{nivel}" id="_tbl_apro_txt_nivel"/>
 										<Text text="{aprobador}" id="_tbl_apro_txt_aprobador"/>
 										<Text text="{cargo}" id="_tbl_apro_txt_cargo"/>
-										<Text text="{responsable}" id="_tbl_apro_txt_responsable"/>
+										<!--<Text text="{responsable}" id="_tbl_apro_txt_responsable"/>-->
 										<Text text="{responsable_nombre}" id="_tbl_apro_txt_responsable_nombre"/>
-										<Text text="{estado}" id="_tbl_apro_txt_estado"/>
+										<!--<Text text="{estado}" id="_tbl_apro_txt_estado"/>-->
 										<Text text="{estado_desc}" id="_tbl_apro_txt_estado_desc"/>
 										<Text text="{valida_smlv}" id="_tbl_apro_txt_valida_smlv"/>
 										<Text text="{reemplazo}" id="_tbl_apro_txt_reemplazo"/>
@@ -232,39 +232,39 @@
 							<columns>
 								<Column id="_tblApro_c_nivel">
 									<header>
-										<Label text="nivel" id="_tblApr_lbl_nivel"/></header>
+										<Label text="Nivel" id="_tblApr_lbl_nivel"/></header>
 								</Column>
 								<Column id="_tblApro_c_aprobador">
 									<header>
-										<Label text="aprobador" id="_tblApr_lbl_aprobador"/></header>
+										<Label text="Aprobador" id="_tblApr_lbl_aprobador"/></header>
 								</Column>
 								<Column id="_tblApro_c_cargo">
 									<header>
-										<Label text="cargo" id="_tblApr_lbl_cargo"/></header>
+										<Label text="Cargo" id="_tblApr_lbl_cargo"/></header>
 								</Column>
-								<Column id="_tblApro_c_responsable">
-									<header>
-										<Label text="responsable" id="_tblApr_lbl_responsable"/></header>
-								</Column>
+								<!--<Column id="_tblApro_c_responsable">-->
+								<!--	<header>-->
+								<!--		<Label text="responsable" id="_tblApr_lbl_responsable"/></header>-->
+								<!--</Column>-->
 								<Column id="_tblApro_c_responsable_nombre">
 									<header>
-										<Label text="responsable_nombre" id="_tblApr_lbl_responsable_nombre"/></header>
+										<Label text="Responsable" id="_tblApr_lbl_responsable_nombre"/></header>
 								</Column>
-								<Column id="_tblApro_c_estado">
-									<header>
-										<Label text="estado" id="_tblApr_lbl_estado"/></header>
-								</Column>
+								<!--<Column id="_tblApro_c_estado">-->
+								<!--	<header>-->
+								<!--		<Label text="estado" id="_tblApr_lbl_estado"/></header>-->
+								<!--</Column>-->
 								<Column id="_tblApro_c_estado_desc">
 									<header>
-										<Label text="estado_desc" id="_tblApr_lbl_estado_desc"/></header>
+										<Label text="Estado" id="_tblApr_lbl_estado_desc"/></header>
 								</Column>
 								<Column id="_tblApro_c_valida_smlv">
 									<header>
-										<Label text="valida_smlv" id="_tblApr_lbl_valida_smlv"/></header>
+										<Label text="ValSMLV" id="_tblApr_lbl_valida_smlv"/></header>
 								</Column>
 								<Column id="_tblApro_c_reemplazo">
 									<header>
-										<Label text="reemplazo" id="_tblApr_lbl_reemplazo"/></header>
+										<Label text="Reemplazo" id="_tblApr_lbl_reemplazo"/></header>
 								</Column>
 							</columns>
 						</Table>
