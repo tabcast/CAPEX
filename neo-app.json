@@ -44,10 +44,10 @@
       "path": "/sap/opu/odata",
       "target": {
         "type": "destination",
-        "name": "NGD",
+        "name": "NGQ",
         "entryPath": "/sap/opu/odata"
       },
-      "description": "NGD"
+      "description": "NGQ"
     }
   ]
 }

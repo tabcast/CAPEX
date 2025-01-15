@@ -12,7 +12,8 @@
     "excludedFiles": [
       "test.html"
     ],
-    "buildRequired": true
+    "buildRequired": false,
+    "lastBuildDateTime": "Wed, 15 Jan 2025 05:10:01 GMT"
   },
   "dataBinding": {
     "/webapp/view/App.view.xml": {
@@ -49,8 +50,8 @@
     "resourceModelName": "i18n"
   },
   "mockpreview": {
-    "mockUri": "/sap/opu/odata/sap/ZGWCAPEX_SRV",
-    "metadataFilePath": "",
+    "mockUri": "/sap/opu/odata/sap/ZGWCAPEX_SRV/",
+    "metadataFilePath": "localService/metadata.xml",
     "loadJSONFiles": false,
     "loadCustomRequests": false,
     "mockRequestsFilePath": ""
@@ -66,5 +67,9 @@
     "notifyBeforePushLevel": "Error",
     "blockPush": false,
     "blockPushLevel": "Error"
+  },
+  "deploy": {
+    "destination": "NGD",
+    "name": "ZCAPEX"
   }
 }
