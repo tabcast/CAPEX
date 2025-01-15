@@ -98,7 +98,12 @@ sap.ui.define([
 			debugger;
 			var sObjectId = oEvent.getParameter("arguments").objectId;
 			var solicituId = oEvent.getParameter("arguments").solicituId;
-			this.f_LoadData(sObjectId, solicituId);
+			sap.ui.getCore().fragment.fnOpenDialog("co.com.postobon.view.fragment.BusyDialog", this);
+			jQuery.sap.delayedCall(500, this, function () {
+			    this.f_LoadData(sObjectId, solicituId);
+				sap.ui.getCore().fragment.fnCloseFragment(this);
+			});			
+			
 			this.getModel().metadataLoaded().then(function() {
 				var sObjectPath = this.getModel().createKey("PRESUPUESTO", {
 					bukrs: sObjectId,
