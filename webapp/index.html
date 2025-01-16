@@ -17,7 +17,7 @@
 		    sap.ui.localResources("gestionviajes");
 			sap.ui.localResources("util");
 			var i18nModel = new sap.ui.model.resource.ResourceModel({
-				bundleUrl: "i18n/messageBundle.properties"
+				bundleUrl: "i18n/messageBundle.properties" 
 			});
 			var configResource = new sap.ui.model.resource.ResourceModel({
 				bundleUrl: "configuration.properties"
@@ -25,7 +25,7 @@
 			/**
 			 * 	Shell for Mobile
 			 */
-			var oShell = new sap.m.Shell("mainShell", {
+			var oShell = new sap.m.Shell("mainShell", { 
 				appTitle: i18nModel.getProperty('AppTitle')
 			});
 			var app = new sap.m.App("mainApp", {

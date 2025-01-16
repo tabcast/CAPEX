@@ -21,7 +21,7 @@
 					</SearchField>
 				</contentMiddle>
 			</Bar>
-		</semantic:subHeader>
+		</semantic:subHeader> 
 
 		<semantic:content>
 			<PullToRefresh
