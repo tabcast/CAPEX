@@ -410,7 +410,7 @@ sap.ui.define([
 						WorkName: vTextoTrabajo.getName(),
 						Duration: vDuracion.getValue(),
 						Time: vTime.getSelectedKey(),
-						TimeText: vTime._getSelectedItemText(),
+						TimeText: vTime._getSelectedItemText(), 
 						Text: vDesc.getValue(),
 						Actividad: vActiv.getSelected(),
 						Arbpl: vTextoTrabajo.getName(),
