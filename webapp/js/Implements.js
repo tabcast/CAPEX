@@ -55,7 +55,7 @@ sap.ui.define([
 				/**
 				 * @author: ce_alopez (Johnny López)
 				 * @description method: set presupuesto post
-				 * @function
+				 * @function 
 				 * @memberOf module: Implements
 				 * @inner
 				 */
