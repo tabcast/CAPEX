@@ -37,7 +37,7 @@ sap.ui.define([
 				 */
 				presupuestoPost: {
 					bukrs: "",
-					solicitud: 0,
+					solicitud:0,
 					ITEMS: [],
 					APROBADORES: [],
 					AMPLIACIONES: []

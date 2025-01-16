@@ -97,10 +97,10 @@ sap.ui.define([
 		_onObjectMatched: function(oEvent) {
 			sap.ui.getCore().fragment.fnOpenDialog("co.com.postobon.view.fragment.BusyDialog", this);
 			debugger;
-			var sObjectId = oEvent.getParameter("arguments").objectId;
-			var solicituId = oEvent.getParameter("arguments").solicituId;
 			
-					
+			var sObjectId = oEvent.getParameter("arguments").objectId;
+			var solicituId =  parseInt(oEvent.getParameter("arguments").solicituId); 
+			
 			this.f_LoadData(sObjectId, solicituId);					
 			jQuery.sap.delayedCall(1500, this, function () {
 				sap.ui.getCore().fragment.fnCloseFragment(this);
