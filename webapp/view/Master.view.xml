@@ -20,7 +20,7 @@
 						search="onSearch">
 					</SearchField>
 				</contentMiddle>
-			</Bar>
+			</Bar> 
 		</semantic:subHeader> 
 
 		<semantic:content>
