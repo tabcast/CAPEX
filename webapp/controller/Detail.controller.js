@@ -98,7 +98,7 @@ sap.ui.define([
 			sap.ui.getCore().fragment.fnOpenDialog("co.com.postobon.view.fragment.BusyDialog", this);
 			debugger;
 			
-			var sObjectId = oEvent.getParameter("arguments").objectId;
+			var sObjectId = oEvent.getParameter("arguments").objectId; 
 			var solicituId =  parseInt(oEvent.getParameter("arguments").solicituId); 
 			
 			this.f_LoadData(sObjectId, solicituId);					
@@ -285,7 +285,7 @@ sap.ui.define([
 			// Binding the view will set it to not busy - so the view is always busy if it is not bound
 			oViewModel.setProperty("/busy", true);
 			// Restore original busy indicator delay for the detail view
-			oViewModel.setProperty("/delay", iOriginalViewBusyDelay);
+			oViewModel.setProperty("/delay", iOriginalViewBusyDelay); 
 		},
 		/**
 		 * @author: ce_alopez (Johnny López)

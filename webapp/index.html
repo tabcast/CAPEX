@@ -3,47 +3,40 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+<!-- src="resources/sap-ui-core.js" or https://openui5.hana.ondemand.com/resources/sap-ui-core.js
 
-		<script src="resources/sap-ui-core.js"
+-->
+		<script 
+		src="resources/sap-ui-core.js"
 				id="sap-ui-bootstrap"
 				data-sap-ui-libs="sap.m"
-				data-sap-ui-theme="sap_bluecrystal">
+				data-sap-ui-theme="sap_bluecrystal"
+		        data-sap-ui-resourceroots='{ "co.com.postobon": "./"  }'
+		    	data-sap-ui-bindingSyntax="complex"
+            	data-sap-ui-compatVersion="edge"
+            	data-sap-ui-preload="async"
+		>
 		</script>
-		<title>Gestión de viajes postobon</title>
+		<title>Capex</title>
 		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
 	</head>
 	<body class="sapUiBody" role="application">
 		<script>
-		    sap.ui.localResources("gestionviajes");
-			sap.ui.localResources("util");
-			var i18nModel = new sap.ui.model.resource.ResourceModel({
-				bundleUrl: "i18n/messageBundle.properties" 
-			});
-			var configResource = new sap.ui.model.resource.ResourceModel({
-				bundleUrl: "configuration.properties"
-			});
-			/**
-			 * 	Shell for Mobile
-			 */
-			var oShell = new sap.m.Shell("mainShell", { 
-				appTitle: i18nModel.getProperty('AppTitle')
-			});
-			var app = new sap.m.App("mainApp", {
-				initialPage: "WorkFlowView"
+		
+
+         //sap.ui.getCore().attachInit(function () {
+           // sap.ui.xmlview({
+            //   viewName : "co.com.postobon.view.App"
+           // }).placeAt("content");
+           alert("");
+			sap.ui.getCore().attachInit(function () {
+
+			new sap.ui.core.ComponentContainer({
+				name : "co.com.postobon"
+			}).placeAt("content");
+
 			});
 
-	     	var WorkFlowView = sap.ui.xmlview("WorkFlowView", "gestionviajes.WorkFlowView");
-	     	WorkFlowView.setModel(i18nModel,"i18n");
-				
-	    	var MainView = sap.ui.xmlview("MainView", "gestionviajes.MainView");
-			MainView.setModel(i18nModel, "i18n");
-					
-			app.addPage(MainView);
-			app.addPage(WorkFlowView);
-	     	
-			//Add App to Shell
-			oShell.setApp(app);
-			oShell.placeAt("content");
 		</script>
 		<div id="content"></div>
 	</body>
