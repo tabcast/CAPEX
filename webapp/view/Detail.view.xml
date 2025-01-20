@@ -6,7 +6,9 @@
 			<Panel expandable="true" expanded="true" width="auto" class="sapUiResponsiveMargin">
 				<headerToolbar>
 					<OverflowToolbar>
-						<Title text="Datos Solicitud"/>
+						<Title text="Solicitud: {solicitud}"/>
+						<ObjectStatus id="statusEstadoCabecera" text=" {estado_desc}"
+							state="{= ${estado} === '3' ? 'Success' : ( ${estado} === '5' || ${estado} ==='6' ) ? 'Error' : 'Warning' }"/>
 					</OverflowToolbar>
 				</headerToolbar>
 				<!--<VBox class="sapUiSmallMargin">-->
@@ -41,7 +43,7 @@
 			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding" >
 				<items>
 					<IconTabFilter id="iconTabBarFilter0" icon="sap-icon://message-information" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>tab_info}">
-						<!--<Label text="111111111"/>-->
+						
 						<f:SimpleForm id="SimpleFormDisplayInfo" editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4"
 							labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1"
 							columnsL="1" columnsM="1" singleContainerFullSize="false">
@@ -223,7 +225,10 @@
 										<!--<Text text="{responsable}" id="_tbl_apro_txt_responsable"/>-->
 										<Text text="{responsable_nombre}" id="_tbl_apro_txt_responsable_nombre"/>
 										<!--<Text text="{estado}" id="_tbl_apro_txt_estado"/>-->
-										<Text text="{estado_desc}" id="_tbl_apro_txt_estado_desc"/>
+										<!--<Text text="{estado_desc}" id="_tbl_apro_txt_estado_desc"/>-->
+										<ObjectStatus id="statusEstadoAprobadores" text=" {estado_desc}"
+										state="{= ${estado} === '3' ? 'Success' : ( ${estado} === '5' || ${estado} ==='6' ) ? 'Error' : 'Warning' }"
+										/>
 										<!--<Text text="{valida_smlv}" id="_tbl_apro_txt_valida_smlv"/>-->
 										<!--<Text text="{reemplazo}" id="_tbl_apro_txt_reemplazo"/>-->
 									</cells>

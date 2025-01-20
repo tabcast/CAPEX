@@ -10,6 +10,8 @@ sap.ui.define([
 	"use strict";
 
 	var url;
+	var ampliacion;
+	var traslado;
 	return BaseController.extend("co.com.postobon.controller.Detail", {
 		formatter: formatter,
 		/* =========================================================== */
@@ -116,11 +118,40 @@ sap.ui.define([
 
 			var oDataPresupuesto = "";
 			oDataPresupuesto = {
+				am_bukrs: "",
+				am_butxt: "",
+				am_solicitud: "",
+				am_consecutivo: "",
+				am_responsable: "",
+				am_responsable_nombre: "",
+				am_objid: "",
+				am_cargo: "",
+				am_direccion: "",
+				am_estado: "",
+				am_estado_desc: "",
+				am_ubicacion: "",
+				am_ubicacion_nombre: "",
+				am_workflow_id: "",
+				tr_traslado: "",
+				tr_bukrs: "",
+				tr_butxt: "",
+				tr_solicitud: "",
+				tr_responsable: "",
+				tr_responsable_nombre: "",
+				tr_objid: "",
+				tr_cargo: "",
+				tr_direccion: "",
+				tr_estado: "",
+				tr_estado_desc: "",
+				tr_ubicacion: "",
+				tr_ubicacion_nombre: "",
+				tr_pernr: "",
 				txtDescripcion : "",
 				txtRequiere : "",
 				txtBeneficios : "",
 				txtConsecuencias : "",
 				txtcomunicaciones : "",
+				texto_justificacion: "",
 				link: "",
 				totalAmpliaciones: 0,
 				totalItems: 0,
@@ -129,6 +160,44 @@ sap.ui.define([
 				lstAmpliaciones: [],
 				lstItemsAprobadores: []
 			};
+			
+			//traslados
+			oDataPresupuesto.am_bukrs                 =  sap.ui.getCore().detailImpliments.getPresupuesto().am_bukrs              ;
+			oDataPresupuesto.am_butxt                 =  sap.ui.getCore().detailImpliments.getPresupuesto().am_butxt              ;
+			oDataPresupuesto.am_solicitud             =  sap.ui.getCore().detailImpliments.getPresupuesto().am_solicitud          ;
+			oDataPresupuesto.am_consecutivo           =  sap.ui.getCore().detailImpliments.getPresupuesto().am_consecutivo        ;
+			oDataPresupuesto.am_responsable           =  sap.ui.getCore().detailImpliments.getPresupuesto().am_responsable        ;
+			oDataPresupuesto.am_responsable_nombre    =  sap.ui.getCore().detailImpliments.getPresupuesto().am_responsable_nombre ;
+			oDataPresupuesto.am_objid                 =  sap.ui.getCore().detailImpliments.getPresupuesto().am_objid              ;
+			oDataPresupuesto.am_cargo                 =  sap.ui.getCore().detailImpliments.getPresupuesto().am_cargo              ;
+			oDataPresupuesto.am_direccion             =  sap.ui.getCore().detailImpliments.getPresupuesto().am_direccion          ;
+			oDataPresupuesto.am_estado                =  sap.ui.getCore().detailImpliments.getPresupuesto().am_estado             ;
+			oDataPresupuesto.am_estado_desc           =  sap.ui.getCore().detailImpliments.getPresupuesto().am_estado_desc        ;
+			oDataPresupuesto.am_ubicacion             =  sap.ui.getCore().detailImpliments.getPresupuesto().am_ubicacion          ;
+			oDataPresupuesto.am_ubicacion_nombre      =  sap.ui.getCore().detailImpliments.getPresupuesto().am_ubicacion_nombre   ;
+			oDataPresupuesto.am_workflow_id           =  sap.ui.getCore().detailImpliments.getPresupuesto().am_workflow_id        ;
+			oDataPresupuesto.tr_traslado              =  sap.ui.getCore().detailImpliments.getPresupuesto().tr_traslado           ;
+			oDataPresupuesto.tr_bukrs                 =  sap.ui.getCore().detailImpliments.getPresupuesto().tr_bukrs              ;
+			oDataPresupuesto.tr_butxt                 =  sap.ui.getCore().detailImpliments.getPresupuesto().tr_butxt              ;
+			oDataPresupuesto.tr_solicitud             =  sap.ui.getCore().detailImpliments.getPresupuesto().tr_solicitud          ;
+			oDataPresupuesto.tr_responsable           =  sap.ui.getCore().detailImpliments.getPresupuesto().tr_responsable        ;
+			oDataPresupuesto.tr_responsable_nombre    =  sap.ui.getCore().detailImpliments.getPresupuesto().tr_responsable_nombre ;
+			oDataPresupuesto.tr_objid                 =  sap.ui.getCore().detailImpliments.getPresupuesto().tr_objid              ;
+			oDataPresupuesto.tr_cargo                 =  sap.ui.getCore().detailImpliments.getPresupuesto().tr_cargo              ;
+			oDataPresupuesto.tr_direccion             =  sap.ui.getCore().detailImpliments.getPresupuesto().tr_direccion          ;
+			oDataPresupuesto.tr_estado                =  sap.ui.getCore().detailImpliments.getPresupuesto().tr_estado             ;
+			oDataPresupuesto.tr_estado_desc           =  sap.ui.getCore().detailImpliments.getPresupuesto().tr_estado_desc        ;
+			oDataPresupuesto.tr_ubicacion             =  sap.ui.getCore().detailImpliments.getPresupuesto().tr_ubicacion          ;
+			oDataPresupuesto.tr_ubicacion_nombre      =  sap.ui.getCore().detailImpliments.getPresupuesto().tr_ubicacion_nombre   ;
+			oDataPresupuesto.tr_pernr                 =  sap.ui.getCore().detailImpliments.getPresupuesto().tr_pernr              ;
+
+			var SimpleFormDisplayInfo = this.getView().byId("SimpleFormDisplayInfo");
+			if (oDataPresupuesto.tr_traslado !== "" || oDataPresupuesto.am_consecutivo !== "")
+			{
+				SimpleFormDisplayInfo.setVisible(false);
+			}else {
+				SimpleFormDisplayInfo.setVisible(true);
+			}
 			
 			//Textos
 			oDataPresupuesto.txtDescripcion = sap.ui.getCore().detailImpliments.getPresupuesto().texto_descripcion;
