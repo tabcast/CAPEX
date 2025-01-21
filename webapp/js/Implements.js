@@ -1651,7 +1651,7 @@ sap.ui.define([
 				 * @inner
 				 */
 				executeActionButton: function(sociedad, solicitud, aceptar, rechazar, texto) {
-					//debugger;
+					debugger;
 					var sServiceUrl = "",
 						oModelService = "",
 						postProceso = {},

@@ -135,11 +135,12 @@
 										<Text text="{cantidad}" id="_tbl_Itemcantidad"/>
 										<Text text="{zona_proceso}" id="_tbl_Itemzona_proceso"/>
 										<Text text="{zona_proceso_desc}" id="_tbl_Itemzona_proceso_desc"/>
-										<Text text="{inversion}" id="_tbl_Iteminversion"/>
-										<Text text="{waers_pos}" id="_tbl_Itemwaers_pos"/>
+										<Text text="{inversion}-{waers_pos}" id="_tbl_Iteminversion"/>
+										<!--<Text text="{waers_pos}" id="_tbl_Itemwaers_pos"/>-->
 										<Text text="{trm}" id="_tbl_Itemtrm"/>
-										<Text text="{inversion_cop}" id="_tbl_Iteminversion_cop"/>
-										<Text text="{waers_cop}" id="_tbl_Itemwaers_cop"/>
+										<Text text="{inversion_cop} {waers_cop}" id="_tbl_Iteminversion_cop"/>
+										
+										<!--<Text text="{waers_cop}" id="_tbl_Itemwaers_cop"/>-->
 										<!--<Text text="{aufnr}" id="_tbl_Itemaufnr"/>-->
 										<!--<Text text="{anln1}" id="_tbl_Itemanln1"/>-->
 										<!--<Text text="{kostl}" id="_tbl_Itemkostl"/>-->
@@ -153,31 +154,31 @@
 										<Label text="Item" id="_tblItem_lbl_item"/>
 									</header>
 								</Column>
-								<Column id="_tblItem_c_cantidad">
+								<Column id="_tblItem_c_cantidad" demandPopin="true" minScreenWidth="Desktop">
 									<header>
-										<Label text="Cant." id="_tblItem_lbl_cantidad"/>
+										<Label text="Cant." id="_tblItem_lbl_cantidad" />
 									</header>
 								</Column>
-								<Column id="_tblItem_c_zona_proceso">
+								<Column id="_tblItem_c_zona_proceso" demandPopin="true" minScreenWidth="Desktop">
 									<header>
 										<Label text="Zona" id="_tblItem_lbl_zona_proceso"/>
 									</header>
 								</Column>
-								<Column id="_tblItem_c_zona_proceso_desc">
+								<Column id="_tblItem_c_zona_proceso_desc" demandPopin="true" minScreenWidth="Desktop">
 									<header>
 										<Label text="Descripción" id="_tblItem_lbl_zona_proceso_desc"/>
 									</header>
 								</Column>
-								<Column id="_tblItem_c_inversion">
+								<Column id="_tblItem_c_inversion" demandPopin="true" minScreenWidth="Desktop">
 									<header>
 										<Label text="Inversión" id="_tblItem_lbl_inversion"/>
 									</header>
 								</Column>
-								<Column id="_tblItem_c_waers_pos">
-									<header>
-										<Label text="Moneda" id="_tblItem_lbl_waers_pos"/>
-									</header>
-								</Column>
+								<!--<Column id="_tblItem_c_waers_pos">-->
+								<!--	<header>-->
+								<!--		<Label text="Moneda" id="_tblItem_lbl_waers_pos"/>-->
+								<!--	</header>-->
+								<!--</Column>-->
 								<Column id="_tblItem_c_trm">
 									<header>
 										<Label text="TRM" id="_tblItem_lbl_trm"/>
@@ -188,11 +189,11 @@
 										<Label text="Inversión" id="_tblItem_lbl_inversion_cop"/>
 									</header>
 								</Column>
-								<Column id="_tblItem_c_waers_cop">
-									<header>
-										<Label text="Moneda" id="_tblItem_lbl_waers_cop"/>
-									</header>
-								</Column>
+								<!--<Column id="_tblItem_c_waers_cop">-->
+								<!--	<header>-->
+								<!--		<Label text="Moneda" id="_tblItem_lbl_waers_cop"/>-->
+								<!--	</header>-->
+								<!--</Column>-->
 								<!--<Column id="_tblItem_c_aufnr">-->
 								<!--	<header>-->
 								<!--		<Label text="aufnr" id="_tblItem_lbl_aufnr"/>-->
