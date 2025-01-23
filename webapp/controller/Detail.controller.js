@@ -152,7 +152,7 @@ sap.ui.define([
 				txtBeneficios : "",
 				txtConsecuencias : "",
 				txtcomunicaciones : "",
-				texto_justificacion: "",
+				txtJustificacion: "",
 				link: "",
 				totalAmpliaciones: 0,
 				totalItems: 0,
@@ -205,12 +205,61 @@ sap.ui.define([
 			oDataPresupuesto.trUbicacionNombre        =   sap.ui.getCore().detailImpliments.getPresupuesto().tr_ubicacion_nombre   ;
 			oDataPresupuesto.trPernr                  =   sap.ui.getCore().detailImpliments.getPresupuesto().tr_pernr              ;
 			
+			this.getView().byId("SFDTraslado").setVisible(false);
+			this.getView().byId("SFDAmpliacion").setVisible(false);
 			var SimpleFormDisplayInfo = this.getView().byId("SimpleFormDisplayInfo");
-			if (oDataPresupuesto.tr_traslado !== "" || oDataPresupuesto.am_consecutivo !== "")
+			 
+			//var iconTabBarFilter0 = this.getView().byId("iconTabBarFilter0");
+			this.getView().byId("SFDTraslado").setBindingContext(oDataPresupuesto,"formtras");
+			if (oDataPresupuesto.trTraslado !== "" || oDataPresupuesto.amConsecutivo !== "")
 			{
+			//	iconTabBarFilter0.setText("Ampliaciones y Traslados");
 				SimpleFormDisplayInfo.setVisible(false);
+				
+	    		this.getView().byId("iconTabBarTraslado").setVisible(true);
+				this.getView().byId("iconTabBarTextos").setVisible(false);
+				
+				//Si es traslado se asigna los valores
+				if (oDataPresupuesto.amConsecutivo !== "")
+				{
+					this.getView().byId("txtamConsecutivo").setText(oDataPresupuesto.amConsecutivo);
+					this.getView().byId("txtamSolicitud").setText(oDataPresupuesto.amSolicitud);
+					this.getView().byId("txtamSociedad").setText(oDataPresupuesto.amBukrs + "-" + oDataPresupuesto.amButxt );
+					this.getView().byId("txtamCentro").setText(oDataPresupuesto.amObjid);
+					this.getView().byId("txtamResponsable").setText(oDataPresupuesto.amResponsable + "-" + oDataPresupuesto.amResponsableNombre);
+					this.getView().byId("txtamCargo").setText(oDataPresupuesto.amCargo);
+					this.getView().byId("txtamDireccion").setText(oDataPresupuesto.amDireccion);
+					this.getView().byId("txtamEstado").setText(oDataPresupuesto.amEstado + "-" + oDataPresupuesto.amEstadoDesc);
+					this.getView().byId("txtamWorkflowid").setText(oDataPresupuesto.amWorkflowId);
+					
+					this.getView().byId("SFDAmpliacion").setVisible(true);
+				}
+				
+				if (oDataPresupuesto.trTraslado !== "" )
+				{
+					if (oDataPresupuesto.trTraslado === "X"){
+						this.getView().byId("chkboxtrasConsecutivo").setSelected(true);
+					}else{
+						this.getView().byId("chkboxtrasConsecutivo").setSelected(false);
+					}
+					
+					this.getView().byId("txttrasSolicitud").setText(oDataPresupuesto.trSolicitud);	
+					this.getView().byId("txttrasSociedad").setText(oDataPresupuesto.trBukrs + "-" + oDataPresupuesto.trButxt);
+					this.getView().byId("txttrasCentro").setText(oDataPresupuesto.trObjid);
+					this.getView().byId("txttrasResponsable").setText(oDataPresupuesto.trResponsable + "-" + oDataPresupuesto.trResponsableNombre);
+					this.getView().byId("txttrasCargo").setText(oDataPresupuesto.trCargo);
+					this.getView().byId("txttrasDireccion").setText(oDataPresupuesto.trDireccion);
+					this.getView().byId("txttrasEstado").setText(oDataPresupuesto.trEstado + "-" + oDataPresupuesto.trEstadoDesc);
+					
+					this.getView().byId("SFDTraslado").setVisible(true);
+				}
+				
 			}else {
+				
+				this.getView().byId("SFDTraslado").setVisible(false);
 				SimpleFormDisplayInfo.setVisible(true);
+				this.getView().byId("iconTabBarTraslado").setVisible(false);
+				this.getView().byId("iconTabBarTextos").setVisible(true);
 			}
 			
 			//Si tiene traslados o ampliaciones
@@ -239,7 +288,12 @@ sap.ui.define([
 			oDataPresupuesto.txtcomunicaciones = sap.ui.getCore().detailImpliments.getPresupuesto().texto_comunicacion;
 			var listItem5 = this.getView().byId("listItem5");
 			listItem5.setDescription(oDataPresupuesto.txtcomunicaciones);
+			var listComunica = this.getView().byId("listComunica");
+			listComunica.setDescription(oDataPresupuesto.txtcomunicaciones);
 			
+			oDataPresupuesto.txtJustificacion = sap.ui.getCore().detailImpliments.getPresupuesto().texto_justificacion;
+			var listItemJusti = this.getView().byId("listItemJusti");
+			listItemJusti.setDescription(oDataPresupuesto.txtJustificacion);
 			
 			//URL
 			url = sap.ui.getCore().detailImpliments.getPresupuesto().url;

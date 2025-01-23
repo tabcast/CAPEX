@@ -1,20 +1,15 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar"
-	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" controllerName="co.com.postobon.controller.Detail">
-	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
-		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" floatingFooter="true">
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" controllerName="co.com.postobon.controller.Detail">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" floatingFooter="true">
 		<semantic:content>
 			<Panel expandable="true" expanded="true" width="auto" class="sapUiResponsiveMargin">
 				<headerToolbar>
 					<OverflowToolbar>
 						<Title text="Solicitud: {solicitud}"/>
-						<ObjectStatus id="statusEstadoCabecera" text=" {estado_desc}"
-							state="{= ${estado} === '3' ? 'Success' : ( ${estado} === '5' || ${estado} ==='6' ) ? 'Error' : 'Warning' }"/>
+						<ObjectStatus id="statusEstadoCabecera" text=" {estado_desc}" state="{= ${estado} === '3' ? 'Success' : ( ${estado} === '5' || ${estado} ==='6' ) ? 'Error' : 'Warning' }"/>
 					</OverflowToolbar>
 				</headerToolbar>
 				<!--<VBox class="sapUiSmallMargin">-->
-				<f:SimpleForm id="SimpleFormDisplay471" editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4"
-					labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1"
-					columnsL="1" columnsM="1" singleContainerFullSize="false">
+				<f:SimpleForm id="SimpleFormDisplay471" editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
 					<f:content>
 						<Label text="Solicitud"/> 
 						<Text id="Solicitud" text="{solicitud}"/>
@@ -33,20 +28,17 @@
 						<!--<Label text="Estado"/>-->
 						<!--<Text id="Estado" text="{estado} - {estado_desc}"/>-->
 						<Label text="Estado"/>
-						<ObjectStatus id="statusEstado" text="{estado} - {estado_desc}"
-							state="{= ${estado} === '3' ? 'Success' : ( ${estado} === '5' || ${estado} ==='6' ) ? 'Error' : 'Warning' }"/>
+						<ObjectStatus id="statusEstado" text="{estado} - {estado_desc}" state="{= ${estado} === '3' ? 'Success' : ( ${estado} === '5' || ${estado} ==='6' ) ? 'Error' : 'Warning' }"/>
 					</f:content>
 				</f:SimpleForm>
 				<!--</VBox>-->
 			</Panel>
 			<!--<ObjectHeader id="objectHeader" title="{solicitud}" numberUnit="{waers}"></ObjectHeader>-->
-			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding" >
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
 				<items>
 					<IconTabFilter id="iconTabBarFilter0" icon="sap-icon://message-information" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>tab_info}">
 						
-						<f:SimpleForm id="SimpleFormDisplayInfo" editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4"
-							labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1"
-							columnsL="1" columnsM="1" singleContainerFullSize="false">
+						<f:SimpleForm id="SimpleFormDisplayInfo" editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
 							<f:content>
 								<Label text="Solicitud"/>
 								<Text id="SolicitudInfo" text="{solicitud}"/>
@@ -73,18 +65,86 @@
 								<Label text="Valor preaprobado"/>
 								<Text id="ValorPreaprobadoInfo" text="{valor_pre_aprobado}"/>
 								<Label text="Estado"/>
-								<ObjectStatus id="statusEstadoInfo" text="{estado} - {estado_desc}"
-									state="{= ${estado} === '3' ? 'Success' : ( ${estado} === '5' || ${estado} ==='6' ) ? 'Error' : 'Warning' }"/>
+								<ObjectStatus id="statusEstadoInfo" text="{estado} - {estado_desc}" state="{= ${estado} === '3' ? 'Success' : ( ${estado} === '5' || ${estado} ==='6' ) ? 'Error' : 'Warning' }"/>
 							    <Label text="Análisis financiero"/>
-								<CheckBox text="" enabled="false" selected="= ${analisis_financiero} === 'X' ? 'true' : 'false'" />
+								<CheckBox text="" enabled="false" selected="= ${analisis_financiero} === 'X' ? 'true' : 'false'"/>
 							    <Label text="Presupuesto"/>
-								<CheckBox text="" enabled="false" selected="= ${presupuesto_ano} === 'X' ? 'true' : 'false'" />	
+								<CheckBox text="" enabled="false" selected="= ${presupuesto_ano} === 'X' ? 'true' : 'false'"/>	
 								<Label text="Workflow"/>
 								<Text id="workflowInfo" text="{workflow_id}"/>
 								
 									
 							</f:content>
 						</f:SimpleForm>
+						
+<f:SimpleForm id="SFDAmpliacion" editable="false" layout="ResponsiveGridLayout" visible="false" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false"
+title="Ampliación"
+ emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"
+>
+							<f:content>
+								<Label text="Consecutivo"/>
+								<Text id="txtamConsecutivo" text=""/>
+
+								<Label text="Solicitud Nro"/>
+								<Text id="txtamSolicitud" text=""/>		
+								
+								<Label text="Sociedad"/>
+								<Text id="txtamSociedad" text=""/>
+								
+							    <Label text="Centro"/>
+								<Text id="txtamCentro" text=""/>	
+								
+							    <Label text="Responsable"/>
+								<Text id="txtamResponsable" text=""/>									
+								
+							    <Label text="Cargo"/>
+								<Text id="txtamCargo" text=""/>	
+								
+							    <Label text="Dirección"/>
+								<Text id="txtamDireccion" text=""/>
+
+							    <Label text="Estado"/>
+								<Text id="txtamEstado" text=""/>						
+
+							    <Label text="WorkFlow ID"/>
+								<Text id="txtamWorkflowid" text=""/>									
+								
+							</f:content>
+</f:SimpleForm>						
+
+<f:SimpleForm id="SFDTraslado" editable="false" layout="ResponsiveGridLayout" visible="false" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false"
+title="Traslado"
+ emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"
+>
+							<f:content>
+								<Label text="Traslado"/>
+								<CheckBox id="chkboxtrasConsecutivo" text="" enabled="false" />	
+
+								<Label text="Solicitud Nro"/>
+								<Text id="txttrasSolicitud" text=""/>		
+								
+								<Label text="Sociedad"/>
+								<Text id="txttrasSociedad" text=""/>
+								
+							    <Label text="Centro"/>
+								<Text id="txttrasCentro" text=""/>	
+								
+							    <Label text="Responsable"/>
+								<Text id="txttrasResponsable" text=""/>									
+								
+							    <Label text="Cargo"/>
+								<Text id="txttrasCargo" text=""/>	
+								
+							    <Label text="Dirección"/>
+								<Text id="txttrasDireccion" text=""/>
+
+							    <Label text="Estado"/>
+								<Text id="txttrasEstado" text=""/>						
+
+								
+							</f:content>
+</f:SimpleForm>
+						
 						<!--<Table id="lineItemsList" width="auto" updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">-->
 						<!--	<headerToolbar>-->
 						<!--		<Toolbar id="lineItemsToolbar">-->
@@ -114,18 +174,23 @@
 						<!--	</items>-->
 						<!--</Table>						-->
 					</IconTabFilter>
-					<IconTabFilter id="iconTabBarF6" icon="sap-icon://attachment-text-file" tooltip="{i18n>tab_textos}" text="{i18n>tab_textos}">
-						<Carousel loop="true" >
+					<IconTabFilter id="iconTabBarTextos" icon="sap-icon://attachment-text-file" tooltip="{i18n>tab_textos}" text="{i18n>tab_textos}">
+						<Carousel loop="true">
 								<StandardListItem id="listItem1" title="Descripción" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false">
 									</StandardListItem>
-								<StandardListItem id="listItem2" title="Porque se requiere?" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false" />
-								<StandardListItem id="listItem3" title="Beneficios esperados" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false" />
-								<StandardListItem id="listItem4" title="Consecuencias si no se realiza" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false" />
-								<StandardListItem id="listItem5" title="Comunicación" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false" />
+								<StandardListItem id="listItem2" title="Porque se requiere?" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false"/>
+								<StandardListItem id="listItem3" title="Beneficios esperados" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false"/>
+								<StandardListItem id="listItem4" title="Consecuencias si no se realiza" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false"/>
+								<StandardListItem id="listItem5" title="Comunicación" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false"/>
 						</Carousel>
 					</IconTabFilter>
-					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://numbered-text" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>tab_item}"
-						iconColor="Positive" count="{ path :'/totalItems'}">
+					<IconTabFilter id="iconTabBarTraslado" icon="sap-icon://document-text" tooltip="{i18n>tab_textos}" text="{i18n>tab_textos}">
+						<Carousel loop="true">
+								<StandardListItem id="listItemJusti" title="Justificación" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false"/>
+								<StandardListItem id="listComunica" title="Comunicación" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false"/>
+						</Carousel>
+					</IconTabFilter>					
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://numbered-text" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>tab_item}" iconColor="Positive" count="{ path :'/totalItems'}">
 						<Table noDataText="No hay Posiciones" id="tbl_items" items="{ path :'/lstItemsItems'}" fixedLayout="Strict" growing="true">
 							<items>
 								<ColumnListItem id="__item2">
@@ -135,10 +200,10 @@
 										<Text text="{cantidad}" id="_tbl_Itemcantidad"/>
 										<Text text="{zona_proceso}" id="_tbl_Itemzona_proceso"/>
 										<Text text="{zona_proceso_desc}" id="_tbl_Itemzona_proceso_desc"/>
-										<Text text="{inversion}-{waers_pos}" id="_tbl_Iteminversion"/>
+										<Text text="{inversion}{waers_pos}" id="_tbl_Iteminversion"/>
 										<!--<Text text="{waers_pos}" id="_tbl_Itemwaers_pos"/>-->
 										<Text text="{trm}" id="_tbl_Itemtrm"/>
-										<Text text="{inversion_cop} {waers_cop}" id="_tbl_Iteminversion_cop"/>
+										<Text text="{inversion_cop}{waers_cop}" id="_tbl_Iteminversion_cop"/>
 										
 										<!--<Text text="{waers_cop}" id="_tbl_Itemwaers_cop"/>-->
 										<!--<Text text="{aufnr}" id="_tbl_Itemaufnr"/>-->
@@ -156,7 +221,7 @@
 								</Column>
 								<Column id="_tblItem_c_cantidad" demandPopin="true" minScreenWidth="Desktop">
 									<header>
-										<Label text="Cant." id="_tblItem_lbl_cantidad" />
+										<Label text="Cant." id="_tblItem_lbl_cantidad"/>
 									</header>
 								</Column>
 								<Column id="_tblItem_c_zona_proceso" demandPopin="true" minScreenWidth="Desktop">
@@ -214,8 +279,7 @@
 						</Table>
 						<content/>
 					</IconTabFilter>
-					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://account" tooltip="{i18n>tab_apro}" text="{i18n>tab_apro}"
-						count="{ path :'/totalAprob'}">
+					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://account" tooltip="{i18n>tab_apro}" text="{i18n>tab_apro}" count="{ path :'/totalAprob'}">
 						<Table noDataText="No hay Aprobadores" id="_table_aprob" items="{ path :'/lstItemsAprobadores'}">
 							<items>
 								<ColumnListItem id="__item3">
@@ -227,9 +291,7 @@
 										<Text text="{responsable_nombre}" id="_tbl_apro_txt_responsable_nombre"/>
 										<!--<Text text="{estado}" id="_tbl_apro_txt_estado"/>-->
 										<!--<Text text="{estado_desc}" id="_tbl_apro_txt_estado_desc"/>-->
-										<ObjectStatus id="statusEstadoAprobadores" text=" {estado_desc}"
-										state="{= ${estado} === '3' ? 'Success' : ( ${estado} === '5' || ${estado} ==='6' ) ? 'Error' : 'Warning' }"
-										/>
+										<ObjectStatus id="statusEstadoAprobadores" text=" {estado_desc}" state="{= ${estado} === '3' ? 'Success' : ( ${estado} === '5' || ${estado} ==='6' ) ? 'Error' : 'Warning' }"/>
 										<!--<Text text="{valida_smlv}" id="_tbl_apro_txt_valida_smlv"/>-->
 										<!--<Text text="{reemplazo}" id="_tbl_apro_txt_reemplazo"/>-->
 									</cells>
@@ -260,7 +322,7 @@
 								<!--	<header>-->
 								<!--		<Label text="estado" id="_tblApr_lbl_estado"/></header>-->
 								<!--</Column>-->
-								<Column id="_tblApro_c_estado_desc">
+								<Column id="_tblApro_c_estado_desc" demandPopin="true" minScreenWidth="Desktop">
 									<header>
 										<Label text="Estado" id="_tblApr_lbl_estado_desc"/></header>
 								</Column>
@@ -281,16 +343,18 @@
 							<items>
 								<ColumnListItem id="__itemampli">
 									<cells>
-										<Text text="{tipo}" id="_tbl_txt_amplitipo"/>
+										<ObjectIdentifier title="{tipo}" text="{justificacion}"/>
+										<!--<Text text="{tipo}" id="_tbl_txt_amplitipo"/>-->
 										<Text text="{consecutivo}" id="_tbl_txt_ampliconsecutivo"/>
-										<Text text="{justificacion}" id="_tbl_txt_amplijustificacion"/>
-										<Text text="{inversion}" id="_tbl_txt_ampliinversion"/>
-										<Text text="{waers}" id="_tbl_txt_ampliwaers"/>
-										<Text text="{inversion_cop}" id="_tbl_txt_ampliinversion_cop"/>
-										<Text text="{waers_cop}" id="_tbl_txt_ampliwaers_cop"/>
-										<Text text="{estado}" id="_tbl_txt_ampliestado"/>
-										<Text text="{estado_desc}" id="_tbl_txt_ampliestado_desc"/>
-										<Text text="{solicitud_tr}" id="_tbl_txt_amplisolicitud_tr"/>
+										<!--<Text text="{justificacion}" id="_tbl_txt_amplijustificacion"/>-->
+										<Text text="{inversion}{waers}" id="_tbl_txt_ampliinversion"/>
+										<!--<Text text="{waers}" id="_tbl_txt_ampliwaers"/>-->
+										<Text text="{inversion_cop}{waers_cop}" id="_tbl_txt_ampliinversion_cop"/>
+										<!--<Text text="{waers_cop}" id="_tbl_txt_ampliwaers_cop"/>-->
+										<!--<Text text="{estado}" id="_tbl_txt_ampliestado"/>-->
+										<!--<Text text="{estado_desc}" id="_tbl_txt_ampliestado_desc"/>-->
+										<ObjectStatus id="statusEstadoAmpliaciones" text=" {estado_desc}" state="{= ${estado} === '3' ? 'Success' : ( ${estado} === '5' || ${estado} ==='6' ) ? 'Error' : 'Warning' }"/>
+										<!--<Text text="{solicitud_tr}" id="_tbl_txt_amplisolicitud_tr"/>-->
 									</cells>
 								</ColumnListItem>
 							</items>
@@ -305,46 +369,46 @@
 										<Label text="Consecutivo" id="_tblampli_lbl_ampliconsecutivo"/>
 									</header>
 								</Column>
-								<Column id="_tblampli_c_justificacion">
-									<header>
-										<Label text="Justificación" id="_tblampli_lbl_amplijustificacion"/>
-									</header>
-								</Column>
+								<!--<Column id="_tblampli_c_justificacion">-->
+								<!--	<header>-->
+								<!--		<Label text="Justificación" id="_tblampli_lbl_amplijustificacion"/>-->
+								<!--	</header>-->
+								<!--</Column>-->
 								<Column id="_tblampli_c_inversion">
 									<header>
 										<Label text="inversión" id="_tblampli_lbl_ampliinversion"/>
 									</header>
 								</Column>
-								<Column id="_tblampli_c_waers">
-									<header>
-										<Label text="Moneda" id="_tblampli_lbl_ampliwaers"/>
-									</header>
-								</Column>
+								<!--<Column id="_tblampli_c_waers">-->
+								<!--	<header>-->
+								<!--		<Label text="Moneda" id="_tblampli_lbl_ampliwaers"/>-->
+								<!--	</header>-->
+								<!--</Column>-->
 								<Column id="_tblampli_c_inversion_cop">
 									<header>
-										<Label text="inversion COP" id="_tblampli_lbl_ampliinversion_cop"/>
+										<Label text="inversión COP" id="_tblampli_lbl_ampliinversion_cop"/>
 									</header>
 								</Column>
-								<Column id="_tblampli_c_waers_cop">
-									<header>
-										<Label text="Moneda COP" id="_tblampli_lbl_ampliwaers_cop"/>
-									</header>
-								</Column>
-								<Column id="_tblampli_c_estado">
+								<!--<Column id="_tblampli_c_waers_cop">-->
+								<!--	<header>-->
+								<!--		<Label text="Moneda COP" id="_tblampli_lbl_ampliwaers_cop"/>-->
+								<!--	</header>-->
+								<!--</Column>-->
+								<Column id="_tblampli_c_estado" demandPopin="true" minScreenWidth="Desktop">
 									<header>
 										<Label text="Estado" id="_tblampli_lbl_ampliestado"/>
 									</header>
 								</Column>
-								<Column id="_tblampli_c_estado_desc">
-									<header>
-										<Label text="Descripción" id="_tblampli_lbl_ampliestado_desc"/>
-									</header>
-								</Column>
-								<Column id="_tblampli_c_solicitud_tr">
-									<header>
-										<Label text="Solicitud" id="_tblampli_lbl_amplisolicitud_tr"/>
-									</header>
-								</Column>
+								<!--<Column id="_tblampli_c_estado_desc">-->
+								<!--	<header>-->
+								<!--		<Label text="Descripción" id="_tblampli_lbl_ampliestado_desc"/>-->
+								<!--	</header>-->
+								<!--</Column>-->
+								<!--<Column id="_tblampli_c_solicitud_tr">-->
+								<!--	<header>-->
+								<!--		<Label text="Solicitud" id="_tblampli_lbl_amplisolicitud_tr"/>-->
+								<!--	</header>-->
+								<!--</Column>-->
 							</columns>
 						</Table>
 					</IconTabFilter>
