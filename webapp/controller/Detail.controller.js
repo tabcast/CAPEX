@@ -208,6 +208,23 @@ sap.ui.define([
 			this.getView().byId("SFDTraslado").setVisible(false);
 			this.getView().byId("SFDAmpliacion").setVisible(false);
 			var SimpleFormDisplayInfo = this.getView().byId("SimpleFormDisplayInfo");
+			
+			this.getView().byId("txttrasSolicitud").setText("");
+			this.getView().byId("txttrasSociedad").setText("");
+			this.getView().byId("txttrasCentro").setText("");
+			this.getView().byId("txttrasResponsable").setText("");
+			this.getView().byId("txttrasCargo").setText("");
+			this.getView().byId("txttrasDireccion").setText("");
+			this.getView().byId("txttrasEstado").setText("");
+			this.getView().byId("txtamConsecutivo").setText("");
+			this.getView().byId("txtamSolicitud").setText("");
+			this.getView().byId("txtamSociedad").setText("");
+			this.getView().byId("txtamCentro").setText("");
+			this.getView().byId("txtamResponsable").setText("");
+			this.getView().byId("txtamCargo").setText("");
+			this.getView().byId("txtamDireccion").setText("");
+			this.getView().byId("txtamEstado").setText("");
+			this.getView().byId("txtamWorkflowid").setText("");
 			 
 			//var iconTabBarFilter0 = this.getView().byId("iconTabBarFilter0");
 			this.getView().byId("SFDTraslado").setBindingContext(oDataPresupuesto,"formtras");
@@ -263,10 +280,10 @@ sap.ui.define([
 			}
 			
 			//Si tiene traslados o ampliaciones
-			var iconTabBarFilter = this.getView().byId("iconTabBarFilter0");
-			if ( oDataPresupuesto.amEstado === "2" || oDataPresupuesto.trEstado === "2"){
-				iconTabBarFilter.setText = "Ampliaciones y traslados";
-			}
+			// var iconTabBarFilter = this.getView().byId("iconTabBarFilter0");
+			// if ( oDataPresupuesto.amEstado === "2" || oDataPresupuesto.trEstado === "2"){
+			// 	iconTabBarFilter.setText = "Ampliaciones y traslados";
+			// }
 			
 			//Textos
 			oDataPresupuesto.txtDescripcion = sap.ui.getCore().detailImpliments.getPresupuesto().texto_descripcion;
