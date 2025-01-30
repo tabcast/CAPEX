@@ -198,10 +198,10 @@ title="Traslado"
 										<Text text="{cantidad}" id="_tbl_Itemcantidad"/>
 										<Text text="{zona_proceso}" id="_tbl_Itemzona_proceso"/>
 										<Text text="{zona_proceso_desc}" id="_tbl_Itemzona_proceso_desc"/>
-										<Text text="{inversion}{waers_pos}" id="_tbl_Iteminversion"/>
+										<Text text="{inversion} {waers_pos}" id="_tbl_Iteminversion"/>
 										<!--<Text text="{waers_pos}" id="_tbl_Itemwaers_pos"/>-->
 										<Text text="{trm}" id="_tbl_Itemtrm"/>
-										<Text text="{inversion_cop}{waers_cop}" id="_tbl_Iteminversion_cop"/>
+										<Text text="{inversion_cop} {waers_cop}" id="_tbl_Iteminversion_cop"/>
 										
 										<!--<Text text="{waers_cop}" id="_tbl_Itemwaers_cop"/>-->
 										<!--<Text text="{aufnr}" id="_tbl_Itemaufnr"/>-->
@@ -345,9 +345,9 @@ title="Traslado"
 										<!--<Text text="{tipo}" id="_tbl_txt_amplitipo"/>-->
 										<Text text="{consecutivo}" id="_tbl_txt_ampliconsecutivo"/>
 										<!--<Text text="{justificacion}" id="_tbl_txt_amplijustificacion"/>-->
-										<Text text="{inversion}{waers}" id="_tbl_txt_ampliinversion"/>
+										<Text text="{inversion} {waers}" id="_tbl_txt_ampliinversion"/>
 										<!--<Text text="{waers}" id="_tbl_txt_ampliwaers"/>-->
-										<Text text="{inversion_cop}{waers_cop}" id="_tbl_txt_ampliinversion_cop"/>
+										<Text text="{inversion_cop} {waers_cop}" id="_tbl_txt_ampliinversion_cop"/>
 										<!--<Text text="{waers_cop}" id="_tbl_txt_ampliwaers_cop"/>-->
 										<!--<Text text="{estado}" id="_tbl_txt_ampliestado"/>-->
 										<!--<Text text="{estado_desc}" id="_tbl_txt_ampliestado_desc"/>-->

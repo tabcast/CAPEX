@@ -24,6 +24,7 @@ sap.ui.define([
 		 * @public
 		 */
 		onInit: function() {
+			sap.ui.getCore().getEventBus().subscribe("MasterDetailChannel", "RefreshMaster", this.onRefreshMaster, this);
 			// Control state model
 			var oList = this.byId("list"),
 				oViewModel = this._createViewModel(),
@@ -57,6 +58,27 @@ sap.ui.define([
 			this.getRouter().getRoute("master").attachPatternMatched(this._onMasterMatched, this);
 			this.getRouter().attachBypassed(this.onBypassed, this);
 		},
+		
+		onRefreshMaster: function () {
+    // Refresh the master view data
+    var oList = this.byId("list");
+    oList.getBinding("items").refresh();
+    
+    var aItems = oList.getItems();
+
+    if (aItems.length > 0) {
+        // Select the first item
+        oList.setSelectedItem(aItems[0], true);
+
+        // Trigger navigation to the detail view
+        this._onMasterMatched({ getSource: function () { return aItems[0]; } });
+    }
+},
+
+onExit: function () {
+    // Unsubscribe from the event to avoid memory leaks
+    sap.ui.getCore().getEventBus().unsubscribe("MasterDetailChannel", "RefreshMaster", this.onRefreshMaster, this);
+},
 
 		/* =========================================================== */
 		/* event handlers                                              */
@@ -130,6 +152,8 @@ sap.ui.define([
 		onRefresh: function() {
 			this._oList.getBinding("items").refresh();
 		},
+		
+		
 
 		/**
 		 * Event handler for the list selection event

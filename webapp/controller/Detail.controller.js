@@ -523,6 +523,7 @@ sap.ui.define([
 				);
 
 			}
+			sap.ui.core.UIComponent.getRouterFor(this);
 		},
 
 		/**
@@ -548,14 +549,15 @@ sap.ui.define([
 				MessageBox.show(
 					"No se aprobó la solicitud", {
 						icon: MessageBox.Icon.ERROR,
-						title: "No aprobada"
+						title: "No Aprobada"
 							// actions: [MessageBox.Action.YES, MessageBox.Action.NO],
 							// onClose: function (oAction) {
 							// 	/ * do something * /
 							// }
 					}
 				);
-
+				alert('www');
+				sap.ui.getCore().getEventBus().publish("MasterDetailChannel", "RefreshMaster");
 				return;
 			} else if (oResponseProceso.data !== null) {
 
@@ -571,6 +573,7 @@ sap.ui.define([
 				);
 
 			}
+			
 		},
 
 		/**
