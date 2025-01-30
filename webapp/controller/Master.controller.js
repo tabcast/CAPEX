@@ -86,6 +86,21 @@ sap.ui.define([
 		 */
 		onSearch: function(oEvent) {
 			debugger;
+			var aFilters = [];
+			var sQuery = oEvent.getSource().getValue();
+			if (sQuery && sQuery.length > 0) {
+				var filter = new Filter("Solicitud", FilterOperator.Contains, sQuery);
+				aFilters.push(filter);
+			}
+
+			// update list binding
+			var oList = this.byId("list");
+			var oBinding = oList.getBinding("items");
+			oBinding.filter(aFilters, "Application");			
+			
+			
+		alert("");
+		return;
 			if (oEvent.getParameters().refreshButtonPressed) {
 				// Search field's 'refresh' button has been pressed.
 				// This is visible if you select any master list item.
@@ -99,7 +114,7 @@ sap.ui.define([
 
 			if (sQuery) {
 				this._oListFilterState.aSearch = [new Filter("solicitud", FilterOperator.Contains, sQuery), new Filter("estado_desc",
-					FilterOperator.Contains, sQuery), new Filter("butxt", FilterOperator.Contains, sQuery)];
+					FilterOperator.Contains, sQuery), new Filter("solicitud", FilterOperator.Contains, sQuery)];
 			} else {
 				this._oListFilterState.aSearch = [];
 			}

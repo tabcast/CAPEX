@@ -139,9 +139,7 @@ title="Traslado"
 								<Text id="txttrasDireccion" text=""/>
 
 							    <Label text="Estado"/>
-								<Text id="txttrasEstado" text=""/>						
-
-								
+								<Text id="txttrasEstado" text=""/>
 							</f:content>
 </f:SimpleForm>
 						

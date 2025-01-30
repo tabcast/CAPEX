@@ -163,10 +163,11 @@ sap.ui.define([
 			};
 			
 			//Estado 
-			estado = sap.ui.getCore().detailImpliments.getPresupuesto().estado;
+			
+			estado = this.getView().byId("statusEstado").getState();//sap.ui.getCore().detailImpliments.getPresupuesto().estado;
 			var btnAcept = this.getView().byId("btnAcept");
 			var btnCancel = this.getView().byId("btnCancel");
-			if(estado === "2"){
+			if(estado === "Warning"){
 			   btnAcept.setEnabled(true);
 			   btnCancel.setEnabled(true);
 			}else{

@@ -9,19 +9,19 @@
 		title="{masterView>/title}"
 		navButtonPress="onNavBack"
 		showNavButton="true">
-		<semantic:subHeader>
-			<Bar id="headerBar">
-				<contentMiddle>
-					<SearchField
-						id="searchField"
-						showRefreshButton="{= !${device>/support/touch} }"
-						tooltip="{i18n>masterSearchTooltip}"
-						width="100%"
-						search="onSearch">
-					</SearchField>
-				</contentMiddle>
-			</Bar> 
-		</semantic:subHeader> 
+		<!--<semantic:subHeader>-->
+		<!--	<Bar id="headerBar">-->
+		<!--		<contentMiddle>-->
+		<!--			<SearchField-->
+		<!--				id="searchField"-->
+		<!--				showRefreshButton="{= !${device>/support/touch} }"-->
+		<!--				tooltip="{i18n>masterSearchTooltip}"-->
+		<!--				width="100%"-->
+		<!--				search="onSearch">-->
+		<!--			</SearchField>-->
+		<!--		</contentMiddle>-->
+		<!--	</Bar> -->
+		<!--</semantic:subHeader> -->
 
 		<semantic:content>
 			<PullToRefresh
