@@ -492,10 +492,10 @@ sap.ui.define([
 
 			sSolicitud = parseInt(this.getView().byId("Solicitud").getText(),10);
 			sCodigoSociedad = this.getView().byId("CodigoSociedad").getText();
-			oResponseProceso = sap.ui.getCore().detailImpliments.executeActionButton(sCodigoSociedad,sSolicitud, "", "X", sap.ui.getCore().detailImpliments
+			oResponseProceso = sap.ui.getCore().detailImpliments.executeActionButton(sCodigoSociedad, sSolicitud, "", "X", sap.ui.getCore().detailImpliments
 				.getTextoSolicitud());
 
-			if (oResponseProceso.data !== null) {
+			if (oResponseProceso.data.MENSAJE !== null) {
 
 				MessageBox.show(
 					"No se rechazó la solicitud", {
@@ -509,7 +509,7 @@ sap.ui.define([
 				);
 
 				return;
-			} else if (oResponseProceso.data === null) {
+			} else if (oResponseProceso.data.MENSAJE === null) {
 
 				MessageBox.show(
 					"Se rechazó la solicitud", {
@@ -521,9 +521,8 @@ sap.ui.define([
 							// }
 					}
 				);
-
+			sap.ui.getCore().getEventBus().publish("MasterDetailChannel", "RefreshMaster");
 			}
-			sap.ui.core.UIComponent.getRouterFor(this);
 		},
 
 		/**
@@ -544,7 +543,7 @@ sap.ui.define([
 			oResponseProceso = sap.ui.getCore().detailImpliments.executeActionButton(sCodigoSociedad, sSolicitud, "X", "", sap.ui.getCore().detailImpliments
 				.getTextoSolicitud());
 
-			if (oResponseProceso.data !== null) {
+			if (oResponseProceso.data.MENSAJE !== null) {
 
 				MessageBox.show(
 					"No se aprobó la solicitud", {
@@ -556,10 +555,8 @@ sap.ui.define([
 							// }
 					}
 				);
-				alert('www');
-				sap.ui.getCore().getEventBus().publish("MasterDetailChannel", "RefreshMaster");
 				return;
-			} else if (oResponseProceso.data !== null) {
+			} else if (oResponseProceso.data.MENSAJE === null) {
 
 				MessageBox.show(
 					"Se aprobó solicitud", {
@@ -571,7 +568,7 @@ sap.ui.define([
 							// }
 					}
 				);
-
+			sap.ui.getCore().getEventBus().publish("MasterDetailChannel", "RefreshMaster");
 			}
 			
 		},
