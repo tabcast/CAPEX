@@ -72,6 +72,7 @@ sap.ui.define([
 
         // Trigger navigation to the detail view
         this._onMasterMatched({ getSource: function () { return aItems[0]; } });
+        this.getRouter().attachBypassed(this.onBypassed, this);
     }
 },
 

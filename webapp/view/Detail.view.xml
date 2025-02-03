@@ -22,9 +22,9 @@
 						<Label text="Responsable"/>
 						<Text id="Responsable" text="{responsable} - {responsable_nombre}"/>
 						<Label text="Valor Neto"/>
-						<Text id="ValorNeto" text="{valor_neto}"/>
+						<Text id="ValorNeto" text="{valor_neto} {waers}"/>
 						<Label text="Valor Aprobado"/>
-						<Text id="ValorAprobado" text="{valor_pre_aprobado}"/>
+						<Text id="ValorAprobado" text="{valor_pre_aprobado} {waers}"/>
 						<!--<Label text="Estado"/>-->
 						<!--<Text id="Estado" text="{estado} - {estado_desc}"/>-->
 						<Label text="Estado"/>
@@ -57,19 +57,19 @@
 								<Label text="Tipo de proyecto"/>
 								<Text id="TipoProyectoInfo" text="{tipo_proyecto}"/>
 								<Label text="Proyecto"/>
-								<Text id="ProyectoInfo" text="proyecto"/>
+								<Text id="ProyectoInfo" text="{proyecto}"/>
 								<Label text="Fecha de inicio"/>
-								<Text id="FechaInicioInfo" text="fecha_inicio"/>
+								<Text id="FechaInicioInfo" text="{fecha_inicio}"/>
 								<Label text="Valor Neto"/>
-								<Text id="ValorNetoInfo" text="{valor_neto}"/>
+								<Text id="ValorNetoInfo" text="{valor_neto} {waers}"/>
 								<Label text="Valor preaprobado"/>
-								<Text id="ValorPreaprobadoInfo" text="{valor_pre_aprobado}"/>
+								<Text id="ValorPreaprobadoInfo" text="{valor_pre_aprobado} {waers}"/>
 								<Label text="Estado"/>
 								<ObjectStatus id="statusEstadoInfo" text="{estado} - {estado_desc}" state="{= ${estado} === '3' ? 'Success' : ( ${estado} === '5' || ${estado} ==='6' ) ? 'Error' : 'Warning' }"/>
 							    <Label text="Análisis financiero"/>
-								<CheckBox text="" enabled="false" selected="= ${analisis_financiero} === 'X' ? 'true' : 'false'"/>
+								<CheckBox id="chkanalisis_financiero" text="" enabled="false" selected="{= ${analisis_financiero} === 'X' ? true: false }"/>
 							    <Label text="Presupuesto"/>
-								<CheckBox text="" enabled="false" selected="= ${presupuesto_ano} === 'X' ? 'true' : 'false'"/>	
+								<CheckBox text="" enabled="false" selected="{= ${presupuesto_ano} === 'X' ? true : false }"/>	
 								<Label text="Workflow"/>
 								<Text id="workflowInfo" text="{workflow_id}"/>
 								

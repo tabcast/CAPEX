@@ -164,16 +164,17 @@ sap.ui.define([
 			
 			//Estado 
 			
-			estado = this.getView().byId("statusEstado").getState();//sap.ui.getCore().detailImpliments.getPresupuesto().estado;
+			//estado = this.getView().byId("statusEstado").getState();//sap.ui.getCore().detailImpliments.getPresupuesto().estado;
+/*			estado = sap.ui.getCore().detailImpliments.getPresupuesto().estado;
 			var btnAcept = this.getView().byId("btnAcept");
 			var btnCancel = this.getView().byId("btnCancel");
-			if(estado === "Warning"){
+			if(estado === "3"){
 			   btnAcept.setEnabled(true);
 			   btnCancel.setEnabled(true);
 			}else{
 			   btnAcept.setEnabled(false);	
 			   btnCancel.setEnabled(false);
-			}
+			}*/
 			
 			
 			//traslados
