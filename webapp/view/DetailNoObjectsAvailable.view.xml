@@ -5,7 +5,7 @@
 
 	<MessagePage
 		id="page"
-		title="{i18n>notAvailableViewTitle}"
+		title="No tenemos más solicitudes para ti"
 		text="{i18n>noObjectsAvailableText}"
 		icon="{sap-icon://product}"
 		description=""
