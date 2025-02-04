@@ -141,7 +141,7 @@
 					"viewName": "Resumen",
 					"viewId": "resumen",
 					"viewLevel": 2
-				},				
+				},
 				"detailObjectNotFound": {
 					"viewName": "DetailObjectNotFound",
 					"viewId": "detailObjectNotFound"
