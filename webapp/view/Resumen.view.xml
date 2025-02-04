@@ -1,0 +1,14 @@
+<mvc:View
+	controllerName="co.com.postobon.controller.Resumen"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+
+	<MessagePage
+		id="page"
+		title="{i18n>detailTitle}"
+		text="Se ha procesado correctamente la solicitud"
+		icon="sap-icon://decision"
+		description="">
+	</MessagePage>
+
+</mvc:View>

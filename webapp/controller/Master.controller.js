@@ -54,32 +54,44 @@ sap.ui.define([
 					this.getOwnerComponent().oListSelector.setBoundMasterList(oList);
 				}.bind(this)
 			});
-
+			
+			debugger;
 			this.getRouter().getRoute("master").attachPatternMatched(this._onMasterMatched, this);
 			this.getRouter().attachBypassed(this.onBypassed, this);
 		},
 		
 		onRefreshMaster: function () {
-    // Refresh the master view data
-    var oList = this.byId("list");
-    oList.getBinding("items").refresh();
-    
-    var aItems = oList.getItems();
+			debugger;
+		sap.ui.getCore().fragment.fnOpenDialog("co.com.postobon.view.fragment.BusyDialog", this);			
+    	// Refresh the master view data
+	    var oList = this.byId("list");
+	    oList.getBinding("items").refresh();
+	    
+	    var aItems = oList.getItems();
 
-    if (aItems.length > 0) {
-        // Select the first item
-        oList.setSelectedItem(aItems[0], true);
+	    if (aItems.length > 0) {
+	        // Select the first item
+	        oList.setSelectedItem(aItems[0], true);
+	        this._showDetailtmp({ getSource: function () { return aItems[0]; } });
+	    }
+	},
 
-        // Trigger navigation to the detail view
-        this._onMasterMatched({ getSource: function () { return aItems[0]; } });
-        this.getRouter().attachBypassed(this.onBypassed, this);
-    }
-},
+   	_showDetailtmp: function(oEvent) {
+   		debugger;
+			var bReplace = !Device.system.phone;
+			
+			this.getRouter().navTo("object2", {
+				objectId: "nuevo",
+				solicituId: 0
+			}, bReplace);
+			sap.ui.getCore().fragment.fnCloseFragment(this);
+		},
 
-onExit: function () {
-    // Unsubscribe from the event to avoid memory leaks
-    sap.ui.getCore().getEventBus().unsubscribe("MasterDetailChannel", "RefreshMaster", this.onRefreshMaster, this);
-},
+	onExit: function () {
+		debugger;
+	    // Unsubscribe from the event to avoid memory leaks
+	    sap.ui.getCore().getEventBus().unsubscribe("MasterDetailChannel", "RefreshMaster", this.onRefreshMaster, this);
+	},
 
 		/* =========================================================== */
 		/* event handlers                                              */

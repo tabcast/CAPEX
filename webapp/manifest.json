@@ -115,6 +115,14 @@
 						"master",
 						"object"
 					]
+				},
+				{
+					"pattern": "object2/{objectId}, {solicituId}",
+					"name": "object2",
+					"target": [
+						"master",
+						"object2"
+					]
 				}
 			],
 			"targets": {
@@ -129,6 +137,11 @@
 					"viewId": "detail",
 					"viewLevel": 2
 				},
+				"object2": {
+					"viewName": "Resumen",
+					"viewId": "resumen",
+					"viewLevel": 2
+				},				
 				"detailObjectNotFound": {
 					"viewName": "DetailObjectNotFound",
 					"viewId": "detailObjectNotFound"

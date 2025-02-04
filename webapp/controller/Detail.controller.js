@@ -10,9 +10,6 @@ sap.ui.define([
 	"use strict";
 
 	var url;
-	var estado;
-	var ampliacion;
-	var traslado;
 	return BaseController.extend("co.com.postobon.controller.Detail", {
 		formatter: formatter,
 		/* =========================================================== */
@@ -273,12 +270,23 @@ sap.ui.define([
 					this.getView().byId("SFDTraslado").setVisible(true);
 				}
 				
+				if (oDataPresupuesto.amConsecutivo !== "" && oDataPresupuesto.trTraslado !== "" )
+				{
+					this.getView().byId("SFDAmpliacion").setTitle("Origen");
+					this.getView().byId("SFDTraslado").setTitle("Destino");
+				}else{
+					this.getView().byId("SFDAmpliacion").setTitle("Ampliación");
+					this.getView().byId("SFDTraslado").setTitle("Traslado");					
+				}
+				
 			}else {
 				
 				this.getView().byId("SFDTraslado").setVisible(false);
 				SimpleFormDisplayInfo.setVisible(true);
 				this.getView().byId("iconTabBarTraslado").setVisible(false);
 				this.getView().byId("iconTabBarTextos").setVisible(true);
+				this.getView().byId("SFDAmpliacion").setTitle("Ampliación");
+				this.getView().byId("SFDTraslado").setTitle("Traslado");						
 			}
 			
 			//Si tiene traslados o ampliaciones
@@ -515,11 +523,11 @@ sap.ui.define([
 				MessageBox.show(
 					"Se rechazó la solicitud", {
 						icon: MessageBox.Icon.SUCCESS,
-						title: "Rechazada"
-							// actions: [MessageBox.Action.YES, MessageBox.Action.NO],
-							// onClose: function (oAction) {
-							// 	/ * do something * /
-							// }
+						title: "Rechazada",
+							//actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+							onClose: function (oAction) {
+							sap.ui.getCore().getEventBus().publish("MasterDetailChannel", "RefreshMaster");
+							}
 					}
 				);
 			sap.ui.getCore().getEventBus().publish("MasterDetailChannel", "RefreshMaster");
@@ -562,14 +570,14 @@ sap.ui.define([
 				MessageBox.show(
 					"Se aprobó solicitud", {
 						icon: MessageBox.Icon.SUCCESS,
-						title: "Aprobada"
-							// actions: [MessageBox.Action.YES, MessageBox.Action.NO],
-							// onClose: function (oAction) {
-							// 	/ * do something * /
-							// }
+						title: "Aprobada",
+							//actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+							onClose: function (oAction) {
+							sap.ui.getCore().getEventBus().publish("MasterDetailChannel", "RefreshMaster");
+							}
 					}
 				);
-			sap.ui.getCore().getEventBus().publish("MasterDetailChannel", "RefreshMaster");
+			
 			}
 			
 		},
