@@ -333,17 +333,17 @@ sap.ui.define([
 			if (sap.ui.getCore().detailImpliments.getPresupuesto().APROBADORES !== null) {
 				oDataPresupuesto.lstItemsAprobadores = sap.ui.getCore().detailImpliments.getPresupuesto().APROBADORES.results;
 			} else {
-				oDataPresupuesto.lstItemsAprobadores = "";
+				oDataPresupuesto.lstItemsAprobadores = null;
 			}
 			if (sap.ui.getCore().detailImpliments.getPresupuesto().ITEMS !== null) {
 				oDataPresupuesto.lstItemsItems = sap.ui.getCore().detailImpliments.getPresupuesto().ITEMS.results;
 			} else {
-				oDataPresupuesto.lstItemsItems = "";
+				oDataPresupuesto.lstItemsItems = null;
 			}
 			if (sap.ui.getCore().detailImpliments.getPresupuesto().AMPLIACIONES !== null) {
 				oDataPresupuesto.lstAmpliaciones = sap.ui.getCore().detailImpliments.getPresupuesto().AMPLIACIONES.results;
 			} else {
-				oDataPresupuesto.lstAmpliaciones = "";
+				oDataPresupuesto.lstAmpliaciones = null;
 			}
 
 			var oModel = new sap.ui.model.json.JSONModel(oDataPresupuesto);
@@ -440,22 +440,22 @@ sap.ui.define([
 		},
 		_onMetadataLoaded: function() {
 			// Store original busy indicator delay for the detail view
-			var iOriginalViewBusyDelay = this.getView().getBusyIndicatorDelay(),
-				oViewModel = this.getModel("detailView"),
-				oLineItemTable = this.byId("lineItemsList"),
-				iOriginalLineItemTableBusyDelay = oLineItemTable.getBusyIndicatorDelay();
+/*			var iOriginalViewBusyDelay = this.getView().getBusyIndicatorDelay(),
+				oViewModel = this.getModel("detailView").
+				//oLineItemTable = this.byId("lineItemsList").
+			//	iOriginalLineItemTableBusyDelay = oLineItemTable.getBusyIndicatorDelay();
 			// Make sure busy indicator is displayed immediately when
 			// detail view is displayed for the first time
 			oViewModel.setProperty("/delay", 0);
 			oViewModel.setProperty("/lineItemTableDelay", 0);
-			oLineItemTable.attachEventOnce("updateFinished", function() {
-				// Restore original busy indicator delay for line item table
-				oViewModel.setProperty("/lineItemTableDelay", iOriginalLineItemTableBusyDelay);
-			});
+			// oLineItemTable.attachEventOnce("updateFinished", function() {
+			// 	// Restore original busy indicator delay for line item table
+			// 	oViewModel.setProperty("/lineItemTableDelay", iOriginalLineItemTableBusyDelay);
+			// });
 			// Binding the view will set it to not busy - so the view is always busy if it is not bound
 			oViewModel.setProperty("/busy", true);
 			// Restore original busy indicator delay for the detail view
-			oViewModel.setProperty("/delay", iOriginalViewBusyDelay); 
+			oViewModel.setProperty("/delay", iOriginalViewBusyDelay); */
 		},
 		/**
 		 * @author: ce_alopez (Johnny López)
@@ -654,17 +654,17 @@ sap.ui.define([
 			if (sap.ui.getCore().detailImpliments.getPresupuesto().data.APROBADORES !== null) {
 				oDataPresupuesto.lstItemsAprobadores = sap.ui.getCore().detailImpliments.getPresupuesto().data.APROBADORES.results;
 			} else {
-				oDataPresupuesto.lstItemsAprobadores = "";
+				oDataPresupuesto.lstItemsAprobadores = null;
 			}
 			if (sap.ui.getCore().detailImpliments.getPresupuesto().data.ITEMS !== null) {
 				oDataPresupuesto.lstItemsItems = sap.ui.getCore().detailImpliments.getPresupuesto().data.ITEMS.results;
 			} else {
-				oDataPresupuesto.lstItemsItems = "";
+				oDataPresupuesto.lstItemsItems = null;
 			}
 			if (sap.ui.getCore().detailImpliments.getPresupuesto().data.AMPLIACIONES !== null) {
 				oDataPresupuesto.lstAmpliaciones = sap.ui.getCore().detailImpliments.getPresupuesto().data.AMPLIACIONES.results;
 			} else {
-				oDataPresupuesto.lstAmpliaciones = "";
+				oDataPresupuesto.lstAmpliaciones = null;
 			}
 			
 			var oModel = new sap.ui.model.json.JSONModel(oDataPresupuesto);
