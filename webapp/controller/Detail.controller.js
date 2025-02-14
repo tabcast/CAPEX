@@ -297,30 +297,41 @@ sap.ui.define([
 			
 			//Textos
 			oDataPresupuesto.txtDescripcion = sap.ui.getCore().detailImpliments.getPresupuesto().texto_descripcion;
-			var listItem1 = this.getView().byId("listItem1");
-			listItem1.setDescription(oDataPresupuesto.txtDescripcion);
+/*			var listItem1 = this.getView().byId("listItem1");
+			listItem1.setDescription(oDataPresupuesto.txtDescripcion);*/
+			this.getView().byId("listItem1_txt").setHtmlText(oDataPresupuesto.txtDescripcion.replaceAll('\r\n','<br>'));
+			
 			
 			oDataPresupuesto.txtRequiere = sap.ui.getCore().detailImpliments.getPresupuesto().texto_requiere;
-			var listItem2 = this.getView().byId("listItem2");
-			listItem2.setDescription(oDataPresupuesto.txtRequiere);
+/*			var listItem2 = this.getView().byId("listItem2");
+			listItem2.setDescription(oDataPresupuesto.txtRequiere);*/
+			this.getView().byId("listItem2_txt").setHtmlText(oDataPresupuesto.txtRequiere.replaceAll('\r\n','<br>'));
+			
 			
 			oDataPresupuesto.txtBeneficios = sap.ui.getCore().detailImpliments.getPresupuesto().texto_beneficios;
-			var listItem3 = this.getView().byId("listItem3");
-			listItem3.setDescription(oDataPresupuesto.txtBeneficios);
+/*			var listItem3 = this.getView().byId("listItem3");
+			listItem3.setDescription(oDataPresupuesto.txtBeneficios);*/
+			this.getView().byId("listItem3_txt").setHtmlText(oDataPresupuesto.txtBeneficios.replaceAll('\r\n','<br>'));
+			
 			
 			oDataPresupuesto.txtConsecuencias = sap.ui.getCore().detailImpliments.getPresupuesto().texto_consecuencias;
-			var listItem4 = this.getView().byId("listItem4");
-			listItem4.setDescription(oDataPresupuesto.txtConsecuencias);
+/*			var listItem4 = this.getView().byId("listItem4");
+			listItem4.setDescription(oDataPresupuesto.txtConsecuencias);*/
+			this.getView().byId("listItem4_txt").setHtmlText(oDataPresupuesto.txtConsecuencias.replaceAll('\r\n','<br>'));
 			
 			oDataPresupuesto.txtcomunicaciones = sap.ui.getCore().detailImpliments.getPresupuesto().texto_comunicacion;
-			var listItem5 = this.getView().byId("listItem5");
-			listItem5.setDescription(oDataPresupuesto.txtcomunicaciones);
-			var listComunica = this.getView().byId("listComunica");
-			listComunica.setDescription(oDataPresupuesto.txtcomunicaciones);
+/*			var listItem5 = this.getView().byId("listItem5");
+			listItem5.setDescription(oDataPresupuesto.txtcomunicaciones);*/
+			this.getView().byId("listItem5_txt").setHtmlText(oDataPresupuesto.txtcomunicaciones.replaceAll('\r\n','<br>'));
+			
+/*			var listComunica = this.getView().byId("listComunica");
+			listComunica.setDescription(oDataPresupuesto.txtcomunicaciones);*/
+			this.getView().byId("listComunica_txt").setHtmlText(oDataPresupuesto.txtcomunicaciones.replaceAll('\r\n','<br>'));
 			
 			oDataPresupuesto.txtJustificacion = sap.ui.getCore().detailImpliments.getPresupuesto().texto_justificacion;
-			var listItemJusti = this.getView().byId("listItemJusti");
-			listItemJusti.setDescription(oDataPresupuesto.txtJustificacion);
+/*			var listItemJusti = this.getView().byId("listItemJusti");
+			listItemJusti.setDescription(oDataPresupuesto.txtJustificacion);*/
+			this.getView().byId("listItemJusti_txt").setHtmlText(oDataPresupuesto.txtJustificacion.replaceAll('\r\n','<br>'));
 			
 			//URL
 			url = sap.ui.getCore().detailImpliments.getPresupuesto().url;

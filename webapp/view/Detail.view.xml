@@ -1,5 +1,7 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" controllerName="co.com.postobon.controller.Detail">
-	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" floatingFooter="true">
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" 
+xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" controllerName="co.com.postobon.controller.Detail">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" 
+	showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" floatingFooter="true">
 		<semantic:content>
 			<Panel expandable="true" expanded="true" width="auto" class="sapUiResponsiveMargin">
 				<headerToolbar>
@@ -174,18 +176,30 @@ title="Traslado"
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarTextos" icon="sap-icon://attachment-text-file" tooltip="{i18n>tab_textos}" text="{i18n>tab_textos}">
 						<Carousel loop="true">
-								<StandardListItem id="listItem1" title="Descripción" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false">
-									</StandardListItem>
+								<Panel headerText="Descripción">	    			<content ><FormattedText id="listItem1_txt"  htmlText='' /></content></Panel>
+								<Panel headerText="Porque se requiere?">			<content ><FormattedText id="listItem2_txt"  htmlText='' /></content></Panel>
+								<Panel headerText="Beneficios esperados">		    <content ><FormattedText id="listItem3_txt"  htmlText='' /></content></Panel>
+								<Panel headerText="Consecuencias si no se realiza"> <content ><FormattedText id="listItem4_txt"  htmlText='' /></content></Panel>
+								<Panel headerText="Comunicación">					<content ><FormattedText id="listItem5_txt"  htmlText='' /></content></Panel>
+							
+<!--								<StandardListItem id="listItem1" title="Descripción" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false"/>
 								<StandardListItem id="listItem2" title="Porque se requiere?" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false"/>
 								<StandardListItem id="listItem3" title="Beneficios esperados" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false"/>
 								<StandardListItem id="listItem4" title="Consecuencias si no se realiza" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false"/>
-								<StandardListItem id="listItem5" title="Comunicación" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false"/>
+								<StandardListItem id="listItem5" title="Comunicación" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false"/>-->
 						</Carousel>
+
+
+
+			
+						
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarTraslado" icon="sap-icon://document-text" tooltip="{i18n>tab_textos}" text="{i18n>tab_textos}">
 						<Carousel loop="true">
-								<StandardListItem id="listItemJusti" title="Justificación" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false"/>
-								<StandardListItem id="listComunica" title="Comunicación" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false"/>
+							<Panel headerText="Justificación"><content ><FormattedText id="listItemJusti_txt"  htmlText='' /></content></Panel>
+							<Panel headerText="Comunicación"><content ><FormattedText id="listComunica_txt"  htmlText='' /></content></Panel>
+					<!--			<StandardListItem id="listItemJusti" title="Justificación" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false"/>
+								<StandardListItem id="listComunica" title="Comunicación" description="" icon="sap-icon://accept" iconDensityAware="false" iconInset="false"/>-->
 						</Carousel>
 					</IconTabFilter>					
 					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://numbered-text" tooltip="{i18n>detailIconTabBarInfo}" text="{i18n>tab_item}" iconColor="Positive" count="{ path :'/totalItems'}">
